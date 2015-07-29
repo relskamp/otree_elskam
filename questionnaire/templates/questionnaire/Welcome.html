@@ -1,0 +1,32 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Questionaire
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Thank you for participating in this experimental session! This is an experiment in the economics
+        of market decision making. The instructions are simple, and if you follow them carefully and make
+        good decisions, you may earn a considerable amount of money, which will be paid privately to you
+        in cash at the end of the experiment. All money during this experiment is real money. Please do
+        not talk with other participants and remain quiet during the entire experiment. Please turn off
+        your cell phone and don’t switch it on until the end of the experiment. If you have any questions,
+        raise your hand and we will come to you.
+    </p>
+    <p>
+        The study will take approximately 90 minutes to complete. The study is comprised of two parts
+        to be described at the appropriate time. Part 1 consists of a short demographic questionnaire
+        outlined below that you will earn a reward of <b>{{Constants.payoff}}</b>
+        for completely. You may begin to fill out the questionnaire at this time.
+    </p>
+
+    <span class="pull-right">
+        {% next_button %}
+    </span>
+    <br>
+
+
+{% endblock %}

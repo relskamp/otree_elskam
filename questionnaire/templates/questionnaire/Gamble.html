@@ -1,0 +1,81 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Questionaire (Final)
+{% endblock %}
+
+{% block content %}
+    <p>
+        In this final part of the questionnaire, we ask you to select one of the hypothetical gamble
+        from the five listed below that you would prefer to play. Note: your choice will have no
+        effect on the remainder of the experiment. The five different gambles are listed below. You
+        must select <b>ONE AND ONLY ONE</b> of these gambles. To select a gamble place an X in
+        the appropriate box. Each gamble has two possible outcomes (Event A or Event B) with
+        the indicated probabilities of occurring. For every gamble, each event has a 50% chance of
+        occurring.
+    </p>
+
+    <input type="hidden" name="gable" id="id_gamble"/>
+
+    <table class="table borderless">
+        <thead>
+            <th>Gamble</th>
+            <th>Event</th>
+            <th>Payoff</th>
+            <th>Pobabilities</th>
+            <th>Your Selection</th>
+        </thead>
+        <tbody>
+            {% for payoff_a, payoff_b in Constants.gambles_payoff %}
+            <tr>
+                <td rowspan="2">{{forloop.counter}}</td>
+                <td>A</td>
+                <td>{{payoff_a}}</td>
+                <td>50%</td>
+                <td rowspan="2">
+                    <div class="radio">
+                        <input type="radio" name="gamble" class="gamble" value="{{forloop.counter}}">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>{{payoff_b}}</td>
+                <td>50%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <span class="pull-right">
+        {% next_button %}
+    </span>
+    <br>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("input.gamble").change(function(evt){
+        var $chbox = $(evt.currentTarget);
+        if($chbox.prop('checked')){
+            var value = $chbox.val();
+            $("#id_gamble").val(value);
+        }
+    });
+
+});
+</script>
+
+<style>
+.borderless td {
+    border: none !important;
+}
+
+.borderless tr:nth-child(even) {
+    border-bottom: solid 1px #ddd;
+}
+
+</style>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Questionaire
+{% endblock %}
+
+{% block content %}
+    <p>
+        In this part of the study you will complete the attached survey.
+        You will earn {{constants.payoff}} for completing this survey. Your
+        answers here will <b>NOT</b> affect your overall payment of this
+        experiment.
+    </p>
+
+    <div id="questions">
+        {% for field in form %}
+            {% formfield field %}
+        {% endfor %}
+    </div>
+
+    <span class="pull-right">
+        {% next_button %}
+    </span>
+    <br>
+
+
+{% endblock %}
