@@ -10,17 +10,21 @@
     <div id="Results">
         <table class="table table-hover">
             <thead>
+                <th>#</th>
+                <th>Status</th>
                 <th>Bid</th>
                 <th>Value</th>
                 <th>Bidder</th>
             </thead>
             {% for result in results %}
-            <tr class="{% if not result.won %}error{% endif %}">
+            <tr class="{% if not result.won %}danger{% endif %}">
+                <td>{{forloop.counter}}</td>
                 <td>{% if result.won %}Won{% else %}Lost{% endif %}</td>
+                <td>{{result.bid}}</td>
                 <td>{{result.value}}</td>
                 <td>
-                    {{result.bidder}}
-                    {% result.is_you %}
+                    Player {{result.bidder}}
+                    {% if result.is_you %}
                     <span class="glyphicon glyphicon-asterisk"></span>
                     {% endif %}
                 </td>

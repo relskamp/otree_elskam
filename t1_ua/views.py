@@ -22,7 +22,24 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-    pass
+
+    def vars_for_template(self):
+        results = []
+        for player in self.group.get_players():
+            results.append({
+                "bidder": player,
+                "is_you": player == self.player,
+                "bid": player.bid_1,
+                "value": player.bid_1_win_value,
+                "won": player.win_1})
+            results.append({
+                "bidder": player,
+                "is_you": player == self.player,
+                "bid": player.bid_2,
+                "value": player.bid_2_win_value,
+                "won": player.win_2})
+        results.sort(key=lambda r: r["bid"], reverse=True)
+        return {"results": results}
 
 
 page_sequence = [Decide, ResultsWaitPage, Results]
