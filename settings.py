@@ -67,7 +67,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = True
+USE_POINTS = False
 
 
 # e.g. en-gb, de-de, it-it, fr-fr.
@@ -139,12 +139,21 @@ SESSION_CONFIG_DEFAULTS = {
 SESSION_CONFIGS = [
     {
         'name': 'elskamp_auction_game',
-        'display_name': "Acution game",
+        'display_name': "Questionaire",
         'num_demo_participants': 8,
         'app_sequence': [
             "questionnaire",
         ],
     },
+    {
+        'name': 'elskamp_auction_game_t1_ua',
+        'display_name': "Treatmen 1-UA",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            "t1_ua",
+        ],
+    },
+
 ]
 
 
