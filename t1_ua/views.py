@@ -38,7 +38,7 @@ class Results(Page):
                 "bid": player.bid_2,
                 "value": player.bid_2_win_value,
                 "won": player.win_2})
-        results.sort(key=lambda r: r["bid"], reverse=True)
+        results.sort(key=lambda r: (r["bid"], r["won"]), reverse=True)
         return {"results": results}
 
 

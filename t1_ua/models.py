@@ -6,8 +6,11 @@ import otree.models
 from otree import widgets
 from otree.common import Currency as c, currency_range
 import random
-import math
 # </standard imports>
+
+import math
+
+from django.conf import settings
 
 
 doc = """
@@ -31,7 +34,7 @@ class Constants:
     players_per_group = 2
     num_rounds = 1
     start_money = c(5)
-    num_rounds = 3
+    num_rounds = settings.ELSKAM["t1_rounds"]
 
 
 class Subsession(otree.models.BaseSubsession):

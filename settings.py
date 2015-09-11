@@ -171,5 +171,9 @@ SESSION_CONFIGS = [
 
 ]
 
+ELSKAM = {
+    "t1_rounds": 3
+}
+
 
 otree.settings.augment_settings(globals())
