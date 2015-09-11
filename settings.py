@@ -160,6 +160,14 @@ SESSION_CONFIGS = [
             "t1_ua",
         ],
     },
+    {
+        'name': 'elskamp_auction_game_t1_da',
+        'display_name': "Treatmen 1-DA",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            "t1_da",
+        ],
+    },
 
 ]
 
