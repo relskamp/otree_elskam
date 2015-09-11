@@ -75,9 +75,16 @@ USE_POINTS = False
 LANGUAGE_CODE = 'en-us'
 
 
-INSTALLED_APPS = [
+APPS = [
     'otree',
 ]
+
+DEBUG_APPS = [
+    "django_extensions"
+]
+
+INSTALLED_APPS = APPS + (DEBUG_APPS if DEBUG else [])
+
 
 if 'SENTRY_DSN' in os.environ:
     INSTALLED_APPS += [

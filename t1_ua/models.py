@@ -6,6 +6,7 @@ import otree.models
 from otree import widgets
 from otree.common import Currency as c, currency_range
 import random
+import math
 # </standard imports>
 
 
@@ -29,6 +30,8 @@ class Constants:
     name_in_url = 't1_ua'
     players_per_group = 2
     num_rounds = 1
+    start_money = c(5)
+    num_rounds = 3
 
 
 class Subsession(otree.models.BaseSubsession):
@@ -50,10 +53,25 @@ class Group(otree.models.BaseGroup):
     clearingprice = models.CurrencyField(min=0, max=10)
 
     def random_money(self, offset, limit):
-        value = random.randint(offset, limit)
-        if value < limit:
-            value += random.random()
+        offset_f, offset_i = math.modf(offset)
+
+        offset_i = int(offset_i)
+        offset_f = int(offset_f * 10)
+
+        value, intents = None, 0
+        while value is None or intents < 100:
+            value = random.randint(offset_i, limit) + random.random()
+            intents += 1
+        if value <= offset:
+            value = random.randint(offset_i + 1, limit) + random.random()
+        if value >= limit:
+            value = float(limit)
         return value
+
+    def _test_random(self):
+        for idx in xrange(100000):
+            offset = random.choice(range(0, 10))
+            assert g.random_money(offset + random.random(), 10) <= 10
 
     def set_payoffs(self):
         self.v3 = self.random_money(0, 10)
@@ -61,15 +79,18 @@ class Group(otree.models.BaseGroup):
         self.v1 = self.random_money(self.v2, 10)
 
         bid_x_players = []
-        for p in self.get_players():
-            bid_x_players.append((p.bid_1, p, 1))
-            bid_x_players.append((p.bid_2, p, 2))
-        bid_x_players.sort(lambda bxp: bxp[0], reverse_true)
+        players = self.get_players()
+        for p in players:
+            rf1, rf2 = random.random(), random.random()
+            # bid - random factos - player - bid number
+            bid_x_players.append((p.bid_1, rf1, p, 1))
+            bid_x_players.append((p.bid_2, rf2, p, 2))
+        bid_x_players.sort(key=lambda bxp: bxp[0:2], reverse=True)
         self.clearingprice = bid_x_players[-1][0]
 
         for idx, bxp in enumerate(bid_x_players[:-1]):
             vidx = idx + 1  # vidx contains if won item 1, 2 or 3
-            player, bid_number = bxp[1], bxp[2]  # bid number is the what bid make this player winner
+            player, bid_number = bxp[2], bxp[3]  # bid number is the what bid make this player winner
             if bid_number == 1:  # win with bid 1
                 player.win_1 = True
                 if vidx == 1:  # win the item 1 with bid 1
@@ -95,6 +116,14 @@ class Group(otree.models.BaseGroup):
                     player.bid_2_win_value = self.v3
                 player.payoff = (player.payoff or 0) + player.profits_2
 
+        for player in players:
+            player.total_payoff = player.payoff
+            if self.subsession.round_number == 1:
+                player.total_payoff += Constants.start_money
+            else:
+                for pplayer in player.in_previous_rounds():
+                    player.total_payoff += pplayer.total_payoff
+
 
 class Player(otree.models.BasePlayer):
 
@@ -103,11 +132,23 @@ class Player(otree.models.BasePlayer):
     subsession = models.ForeignKey(Subsession)
     # </built-in>
 
+    total_payoff = models.CurrencyField()
+
     bid_1 = models.CurrencyField(min=0, max=10, verbose_name="Your First Bid")
     bid_2 = models.CurrencyField(min=0, max=10, verbose_name="Your Second Bid")
     profits_1 = models.CurrencyField(default=0)
     profits_2 = models.CurrencyField(default=0)
-    win_1 = models.BooleanField()
-    win_2 = models.BooleanField()
+    win_1 = models.BooleanField(default=False)
+    win_2 = models.BooleanField(default=False)
     bid_1_win_value = models.CurrencyField(default=0)
     bid_2_win_value = models.CurrencyField(default=0)
+
+    def str_payoff(self):
+        pre = u"- " if self.payoff < 0 else u""
+        return pre + unicode(c(abs(self.payoff)))
+
+    def str_total_payoff(self):
+        pre = u"- " if self.total_payoff < 0 else u""
+        return pre + unicode(c(abs(self.total_payoff)))
+
+
