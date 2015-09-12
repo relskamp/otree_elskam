@@ -1,0 +1,27 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Decide
+{% endblock %}
+
+{% block content %}
+
+    <p class="pull-right">
+        Your balance is
+        <strong class="text {% if player.balance < 0 %} text-alert {% else %} text-info {% endif %}">
+            {{player.str_balance}}
+        </strong>
+    </p>
+
+    <div id="questions">
+        {% for field in form %}
+            {% formfield field %}
+        {% endfor %}
+    </div>
+
+    <span class="pull-right">
+        {% next_button %}
+    </span>
+    <br>
+{% endblock %}

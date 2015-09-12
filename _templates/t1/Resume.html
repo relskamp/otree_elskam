@@ -1,0 +1,29 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Thank You For Playing
+{% endblock %}
+
+{% block content %}
+
+    <ul>
+        <li>
+            In the game you accumulated
+            <span class="{% if player.total_payoff < 0%}text text-danger{%endif%}">
+                {{player.str_total_payoff}}
+            </span>
+        <li>
+            Your Final Payoff is
+            <strong class="{% if player.final_payoff < 0%}text text-danger{%endif%}">
+                {{player.str_final_payoff}}
+            </strong>
+            (Choiced randomly from round <code>{{player.final_payoff_round_number}}</code>)
+        </li>
+    </ul>
+
+    <span class="pull-right">
+        {% next_button %}
+    </span>
+    <br>
+{% endblock %}

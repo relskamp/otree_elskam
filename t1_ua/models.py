@@ -12,6 +12,8 @@ import math
 
 from django.conf import settings
 
+import common
+
 
 doc = """
 Foo
@@ -53,33 +55,10 @@ class Group(otree.models.BaseGroup):
     v2 = models.CurrencyField(min=0, max=10)
     v3 = models.CurrencyField(min=0, max=10)
 
-    clearingprice = models.CurrencyField(min=0, max=10)
-
-    def random_money(self, offset, limit):
-        offset_f, offset_i = math.modf(offset)
-
-        offset_i = int(offset_i)
-        offset_f = int(offset_f * 10)
-
-        value, intents = None, 0
-        while value is None or intents < 100:
-            value = random.randint(offset_i, limit) + random.random()
-            intents += 1
-        if value <= offset:
-            value = random.randint(offset_i + 1, limit) + random.random()
-        if value >= limit:
-            value = float(limit)
-        return value
-
-    def _test_random(self):
-        for idx in xrange(100000):
-            offset = random.choice(range(0, 10))
-            assert g.random_money(offset + random.random(), 10) <= 10
-
     def set_payoffs(self):
-        self.v3 = self.random_money(0, 10)
-        self.v2 = self.random_money(self.v3, 10)
-        self.v1 = self.random_money(self.v2, 10)
+        self.v3 = common.random_money(0, 10)
+        self.v2 = common.random_money(self.v3, 10)
+        self.v1 = common.random_money(self.v2, 10)
 
         bid_x_players = []
         players = self.get_players()
@@ -146,6 +125,25 @@ class Player(otree.models.BasePlayer):
     bid_1_win_value = models.CurrencyField(default=0)
     bid_2_win_value = models.CurrencyField(default=0)
 
+    final_payoff = models.CurrencyField()
+    final_payoff_round_number = models.PositiveIntegerField()
+
+    def balance(self):
+        if not hasattr(self, "__balance"):
+            if self.round_number == 1:
+                self.__balance = Constants.start_money
+            else:
+                rnm1 = self.round_number - 1
+                for p in self.in_previous_rounds():
+                    if p.round_number == rnm1:
+                        self.__balance = p.total_payoff
+        return self.__balance
+
+    def str_balance(self):
+        balance = self.balance()
+        pre = u"- " if balance < 0 else u""
+        return pre + unicode(c(abs(balance)))
+
     def str_payoff(self):
         pre = u"- " if self.payoff < 0 else u""
         return pre + unicode(c(abs(self.payoff)))
@@ -153,5 +151,17 @@ class Player(otree.models.BasePlayer):
     def str_total_payoff(self):
         pre = u"- " if self.total_payoff < 0 else u""
         return pre + unicode(c(abs(self.total_payoff)))
+
+    def str_final_payoff(self):
+        pre = u"- " if self.final_payoff < 0 else u""
+        return pre + unicode(c(abs(self.final_payoff)))
+
+    def set_final_payoff(self):
+        choiced = random.choice(self.in_all_rounds())
+        participant = choiced.participant
+        choiced_payoff = choiced.payoff
+        choiced_rn = choiced.round_number
+        Player.objects.filter(participant=participant).update(
+            final_payoff=choiced_payoff, final_payoff_round_number=choiced_rn)
 
 

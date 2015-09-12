@@ -172,7 +172,7 @@ SESSION_CONFIGS = [
 ]
 
 ELSKAM = {
-    "t1_rounds": 3
+    "t1_rounds": 2
 }
 
 

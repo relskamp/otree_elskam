@@ -41,5 +41,15 @@ class Results(Page):
         results.sort(key=lambda r: (r["bid"], r["won"]), reverse=True)
         return {"results": results}
 
+    def before_next_page(self):
+        if self.subsession.round_number == Constants.num_rounds:
+            self.player.set_final_payoff()
 
-page_sequence = [Decide, ResultsWaitPage, Results]
+
+class Resume(Page):
+
+    def is_displayed(self):
+        return self.subsession.round_number == Constants.num_rounds
+
+
+page_sequence = [Decide, ResultsWaitPage, Results, Resume]
