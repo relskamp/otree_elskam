@@ -30,14 +30,21 @@ class Results(Page):
                 "bidder": player,
                 "is_you": player == self.player,
                 "bid": player.bid_1,
-                "value": player.bid_1_win_value,
-                "won": player.win_1})
+                "value": player.v1,
+                "won": player.win_bid_1,
+                "extra_bid": (
+                    "" if player.win_bid_1 else
+                    "<small><code>Market Price</code><small>")})
             results.append({
                 "bidder": player,
                 "is_you": player == self.player,
                 "bid": player.bid_2,
-                "value": player.bid_2_win_value,
-                "won": player.win_2})
+                "value": player.v2,
+                "won": player.win_bid_2,
+                "extra_bid": (
+                    "" if player.win_bid_2 else
+                    "<small><code>Market Price</code><small>")})
+
         results.sort(key=lambda r: (r["bid"], r["won"]), reverse=True)
         return {"results": results}
 

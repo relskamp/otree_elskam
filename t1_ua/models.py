@@ -43,6 +43,8 @@ class Subsession(otree.models.BaseSubsession):
 
     def before_session_starts(self):
         self.match_players("perfect_strangers")
+        for player in self.get_players():
+            player.set_values()
 
 
 class Group(otree.models.BaseGroup):
@@ -51,52 +53,35 @@ class Group(otree.models.BaseGroup):
     subsession = models.ForeignKey(Subsession)
     # </built-in>
 
-    v1 = models.CurrencyField(min=0, max=10)
-    v2 = models.CurrencyField(min=0, max=10)
-    v3 = models.CurrencyField(min=0, max=10)
+    clearingprice = models.CurrencyField()
 
     def set_payoffs(self):
-        self.v3 = common.random_money(0, 10)
-        self.v2 = common.random_money(self.v3, 10)
-        self.v1 = common.random_money(self.v2, 10)
-
         bid_x_players = []
+        player_values = {}
         players = self.get_players()
-        for p in players:
+        for player in players:
             rf1, rf2 = random.random(), random.random()
-            # bid - random factos - player - bid number
-            bid_x_players.append((p.bid_1, rf1, p, 1))
-            bid_x_players.append((p.bid_2, rf2, p, 2))
+            # bid - random factor - player - bid number
+            bid_x_players.append((player.bid_1, rf1, player, 1))
+            bid_x_players.append((player.bid_2, rf2, player, 2))
+            player_values[player] = [player.v1, player.v2]
+
         bid_x_players.sort(key=lambda bxp: bxp[0:2], reverse=True)
         self.clearingprice = bid_x_players[-1][0]
-
         for idx, bxp in enumerate(bid_x_players[:-1]):
-            vidx = idx + 1  # vidx contains if won item 1, 2 or 3
+            item = idx + 1  # vidx contains if won item 1, 2 or 3
             player, bid_number = bxp[2], bxp[3]  # bid number is the what bid make this player winner
-            if bid_number == 1:  # win with bid 1
-                player.win_1 = True
-                if vidx == 1:  # win the item 1 with bid 1
-                    player.profits_1 = self.v1 -  self.clearingprice
-                    player.bid_1_win_value = self.v1
-                elif vidx == 2:  # win the item 2 with bid 1
-                    player.profits_1 = self.v2 -  self.clearingprice
-                    player.bid_1_win_value = self.v2
-                elif vidx == 3:  # win the item 3 with bid 1
-                    player.profits_1 = self.v3 -  self.clearingprice
-                    player.bid_1_win_value = self.v3
-                player.payoff = (player.payoff or 0) + player.profits_1
-            elif bid_number == 2:  # win with bid 2
-                player.win_2 = True
-                if vidx == 1:
-                    player.profits_2 = self.v1 -  self.clearingprice
-                    player.bid_2_win_value = self.v1
-                elif vidx == 2:
-                    player.profits_2 = self.v2 -  self.clearingprice
-                    player.bid_2_win_value = self.v2
-                elif vidx == 3:
-                    player.profits_2 = self.v3 -  self.clearingprice
-                    player.bid_2_win_value = self.v3
-                player.payoff = (player.payoff or 0) + player.profits_2
+            values = player_values[player]
+            if bid_number == 1:
+                player.win_bid_1 = True
+                player.item_win_bid_1 = item
+                player.profits_bid_1 = values.pop(0) - self.clearingprice
+                player.payoff = (player.payoff or 0) + player.profits_bid_1
+            elif bid_number == 2:
+                player.win_bid_2 = True
+                player.item_win_bid_2 = item
+                player.profits_bid_2 = values.pop(0) - self.clearingprice
+                player.payoff = (player.payoff or 0) + player.profits_bid_2
 
         for player in players:
             player.total_payoff = player.payoff
@@ -118,15 +103,22 @@ class Player(otree.models.BasePlayer):
 
     bid_1 = models.CurrencyField(min=0, max=10, verbose_name="Your First Bid")
     bid_2 = models.CurrencyField(min=0, max=10, verbose_name="Your Second Bid")
-    profits_1 = models.CurrencyField(default=0)
-    profits_2 = models.CurrencyField(default=0)
-    win_1 = models.BooleanField(default=False)
-    win_2 = models.BooleanField(default=False)
-    bid_1_win_value = models.CurrencyField(default=0)
-    bid_2_win_value = models.CurrencyField(default=0)
+    profits_bid_1 = models.CurrencyField(default=0)
+    profits_bid_2 = models.CurrencyField(default=0)
+    win_bid_1 = models.BooleanField(default=False)
+    win_bid_2 = models.BooleanField(default=False)
+    item_win_bid_1 = models.PositiveIntegerField()
+    item_win_win_2 = models.PositiveIntegerField()
+
+    v1 = models.CurrencyField(min=0, max=10)
+    v2 = models.CurrencyField(min=0, max=10)
 
     final_payoff = models.CurrencyField()
     final_payoff_round_number = models.PositiveIntegerField()
+
+    def set_values(self):
+        self.v2 = common.random_money(0, 10)
+        self.v1 = common.random_money(self.v2, 10)
 
     def balance(self):
         if not hasattr(self, "__balance"):

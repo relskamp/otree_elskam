@@ -18,17 +18,12 @@
             </thead>
             {% for result in results %}
             <tr class="{% if not result.won %}danger{% endif %}">
-                <td>{{forloop.counter}}</td>
-                <td>{% if result.won %}Won{% else %}Lost{% endif %}</td>
-                {% if result.won %}
-                <td>{{result.bid}}</td>
-                <td>{{result.value}}</td>
-                {% else %}
-                <td><strong>{{result.bid}}</strong></td>
-                <td>-</td>
-                {% endif %}
+                <td>{{forloop.counter}} {{result.extra_counter|safe}}</td>
+                <td>{% if result.won %}Won{% else %}Lost{% endif %} {{result.extra_won|safe}}</td>
+                <td>{{result.bid}} {{result.extra_bid|safe}}</td>
+                <td>{{result.value}} {{result.extra_value|safe}}</td>
                 <td>
-                    Player {{result.bidder}}
+                    Player {{result.bidder}} {{result.extra_bidder|safe}}
                     {% if result.is_you %}
                     <span class="glyphicon glyphicon-asterisk"></span>
                     {% endif %}
