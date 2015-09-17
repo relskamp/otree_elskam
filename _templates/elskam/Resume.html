@@ -18,7 +18,9 @@
             <strong class="{% if player.final_payoff < 0%}text text-danger{%endif%}">
                 {{player.str_final_payoff}}
             </strong>
-            (Choiced randomly from round <code>{{player.final_payoff_round_number}}</code>)
+            <small>
+                (Choiced randomly from round <code>{{player.final_payoff_round_number}}</code>)
+            </small>
         </li>
     </ul>
 

@@ -155,7 +155,7 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'elskamp_auction_game_t1_ua',
-        'display_name': "Treatmen 1-UA",
+        'display_name': "Treatment 1-UA",
         'num_demo_participants': 2,
         'app_sequence': [
             "t1_ua",
@@ -170,21 +170,21 @@ SESSION_CONFIGS = [
         ],
     },
     {
-        'name': 'elskamp_auction_game_t1_ua',
-        'display_name': "Treatmen 1-UA",
-        'num_demo_participants': 2,
+        'name': 'elskamp_auction_game_t2_ua',
+        'display_name': "Treatment 2-UA",
+        'num_demo_participants': 3,
         'app_sequence': [
             "t2_ua",
         ],
     },
-    #~ {
-        #~ 'name': 'elskamp_auction_game_t1_da',
-        #~ 'display_name': "Treatmen 1-DA",
-        #~ 'num_demo_participants': 2,
-        #~ 'app_sequence': [
-            #~ "t1_da",
-        #~ ],
-    #~ },
+    {
+        'name': 'elskamp_auction_game_t2_da',
+        'display_name': "Treatment 2-DA",
+        'num_demo_participants': 3,
+        'app_sequence': [
+            "t2_da",
+        ],
+    },
 ]
 
 ELSKAM = {
