@@ -169,11 +169,26 @@ SESSION_CONFIGS = [
             "t1_da",
         ],
     },
-
+    {
+        'name': 'elskamp_auction_game_t1_ua',
+        'display_name': "Treatmen 1-UA",
+        'num_demo_participants': 2,
+        'app_sequence': [
+            "t2_ua",
+        ],
+    },
+    #~ {
+        #~ 'name': 'elskamp_auction_game_t1_da',
+        #~ 'display_name': "Treatmen 1-DA",
+        #~ 'num_demo_participants': 2,
+        #~ 'app_sequence': [
+            #~ "t1_da",
+        #~ ],
+    #~ },
 ]
 
 ELSKAM = {
-    "t1_rounds": 2
+    "rounds": 2
 }
 
 

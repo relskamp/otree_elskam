@@ -20,7 +20,7 @@ Foo
 """
 
 
-source_code = ""
+source_code = "https://github.com/leliel12/otree_elskam"
 
 
 bibliography = ()
@@ -36,7 +36,7 @@ class Constants:
     players_per_group = 2
     num_rounds = 1
     start_money = c(5)
-    num_rounds = settings.ELSKAM["t1_rounds"]
+    num_rounds = settings.ELSKAM["rounds"]
 
 
 class Subsession(otree.models.BaseSubsession):
