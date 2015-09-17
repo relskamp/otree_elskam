@@ -1,5 +1,5 @@
 {% extends "global/Base.html" %}
-{% load staticfiles otree_tags %}
+{% load humanize staticfiles otree_tags %}
 
 {% block title %}
     Decide
@@ -14,12 +14,12 @@
         </strong>
     </p>
 
+    {% for value in player.values %}
     <p>
-        Your valuation for the <strong>first</strong> unit is: <strong class="text-info">{{player.v1}}</strong>
+        Your valuation for the <strong>{{forloop.counter|ordinal}}</strong> unit is:
+        <strong class="text-info">{{value}}</strong>
     </p>
-    <p>
-        Your valuation for the <strong>second</strong> unit is: <strong class="text-info">{{player.v2}}</strong>
-    </p>
+    {% endfor %}
 
     <div id="questions">
         {% for field in form %}

@@ -113,6 +113,9 @@ class Player(otree.models.BasePlayer):
     final_payoff = models.CurrencyField()
     final_payoff_round_number = models.PositiveIntegerField()
 
+    def values(self):
+        return self.v1, self.v2
+
     def set_values(self):
         self.v2 = common.random_money(0, 10)
         self.v1 = common.random_money(self.v2, 10)

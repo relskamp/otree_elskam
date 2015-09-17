@@ -77,6 +77,7 @@ LANGUAGE_CODE = 'en-us'
 
 APPS = [
     'otree',
+    'django.contrib.humanize'
 ]
 
 DEBUG_APPS = [
