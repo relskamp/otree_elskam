@@ -12,7 +12,7 @@ def vars_for_all_templates(self):
 class Decide(Page):
 
     form_model = models.Player
-    form_fields = ["bid_1", "bid_2", "bid_3"]
+    form_fields = ["bid_1", "bid_2"]
 
 
 class ResultsWaitPage(WaitPage):
@@ -24,6 +24,7 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
 
     def vars_for_template(self):
+        treatment = self.session.config['treatment']
         results = []
         for player in self.group.get_players():
             results.append({
@@ -40,19 +41,20 @@ class Results(Page):
                 "is_you": player == self.player,
                 "bid": player.bid_2,
                 "value": player.v2,
-                "won": player.win_bid_2,
-                "extra_bid": (
-                    "" if player.win_bid_2 else
-                    "<small><code>Market Price</code><small>")})
-            results.append({
-                "bidder": player,
-                "is_you": player == self.player,
-                "bid": player.bid_3,
-                "value": player.v3,
-                "won": player.win_bid_3,
-                "extra_bid": (
-                    "" if player.win_bid_3 else
-                    "<small><code>Market Price</code><small>")})
+                "won": player.win_bid_2})
+            if treatment.startswith("T2-"):
+                results.append({
+                    "bidder": player,
+                    "is_you": player == self.player,
+                    "bid": player.bid_3,
+                    "value": player.v3,
+                    "won": player.win_bid_3})
+
+        if treatment.endswith("-UA"):
+            for d in results:
+                d["extra_bid"] = (
+                    "" if d["won"] else
+                    "<small><code>Market Price</code><small>")
 
         results.sort(key=lambda r: (r["bid"], r["won"]), reverse=True)
         return {"results": results}

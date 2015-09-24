@@ -32,11 +32,11 @@ links = {}
 keywords = ()
 
 class Constants:
-    name_in_url = 't2_ua'
-    players_per_group = 3
+    name_in_url = 'auction'
+    players_per_group = 2
     num_rounds = 1
     start_money = c(5)
-    num_rounds = settings.ELSKAM["rounds"]
+    num_rounds = None
 
 
 class Subsession(otree.models.BaseSubsession):
@@ -56,37 +56,47 @@ class Group(otree.models.BaseGroup):
     clearingprice = models.CurrencyField()
 
     def set_payoffs(self):
+        treatment = self.session.config['treatment']
+
         bid_x_players = []
         player_values = {}
         players = self.get_players()
         for player in players:
-            rf1, rf2, rf3 = random.random(), random.random(), random.random()
             # bid - random factor - player - bid number
-            bid_x_players.append((player.bid_1, rf1, player, 1))
-            bid_x_players.append((player.bid_2, rf2, player, 2))
-            bid_x_players.append((player.bid_3, rf3, player, 3))
-            player_values[player] = [player.v1, player.v2, player.v3]
+            rf = [random.random(), random.random(), random.random()]
+            bid_x_players.append((player.bid_1, rf.pop(), player, 1))
+            bid_x_players.append((player.bid_2, rf.pop(), player, 2))
+            if treatment.startswith("T2-"):
+                bid_x_players.append((player.bid_3, rf.pop(), player, 3))
+            player_values[player] = list(player.values)
 
-        bid_x_players.sort(key=lambda bxp: bxp[0:2], reverse=True)
-        self.clearingprice = bid_x_players[-1][0]
+        bid_x_players.sort(key=lambda bxp: tuple(bxp[0:1]), reverse=True)
+
+        if treatment.endswith("-UA"):
+            self.clearingprice = bid_x_players[-1][0]
+
         for idx, bxp in enumerate(bid_x_players[:-1]):
-            item = idx + 1  # vidx contains if won item 1, 2, 3, 4, 5, 6, 7 or 8
-            player, bid_number = bxp[2], bxp[3]  # bid number is the what bid make this player winner
+            item = idx + 1  # vidx contains if won item 1, 2 or 3
+
+            # bid number is the what bid make this player winner
+            bid, player, bid_number = bxp[0], bxp[2], bxp[3]
             values = player_values[player]
+            cost = self.clearingprice if treatment.endswith("-UA") else bid
+
             if bid_number == 1:
                 player.win_bid_1 = True
                 player.item_win_bid_1 = item
-                player.profits_bid_1 = values.pop(0) - self.clearingprice
+                player.profits_bid_1 = values.pop(0) - cost
                 player.payoff = (player.payoff or 0) + player.profits_bid_1
             elif bid_number == 2:
                 player.win_bid_2 = True
                 player.item_win_bid_2 = item
-                player.profits_bid_2 = values.pop(0) - self.clearingprice
+                player.profits_bid_2 = values.pop(0) - cost
                 player.payoff = (player.payoff or 0) + player.profits_bid_2
             elif bid_number == 3:
                 player.win_bid_3 = True
                 player.item_win_bid_3 = item
-                player.profits_bid_3 = values.pop(0) - self.clearingprice
+                player.profits_bid_3 = values.pop(0) - cost
                 player.payoff = (player.payoff or 0) + player.profits_bid_3
 
         for player in players:
@@ -128,28 +138,20 @@ class Player(otree.models.BasePlayer):
     final_payoff_round_number = models.PositiveIntegerField()
 
     def values(self):
+        if self.session.config['treatment'].startswith("T1-"):
+            return self.v1, self.v2
         return self.v1, self.v2, self.v3
 
     def set_values(self):
-        self.v3 = common.random_money(0, 10)
-        self.v2 = common.random_money(self.v3, 10)
-        self.v1 = common.random_money(self.v2, 10)
-
-    def balance(self):
-        if not hasattr(self, "__balance"):
-            if self.round_number == 1:
-                self.__balance = Constants.start_money
-            else:
-                rnm1 = self.round_number - 1
-                for p in self.in_previous_rounds():
-                    if p.round_number == rnm1:
-                        self.__balance = p.total_payoff
-        return self.__balance
-
-    def str_balance(self):
-        balance = self.balance()
-        pre = u"- " if balance < 0 else u""
-        return pre + unicode(c(abs(balance)))
+        if self.session.config['treatment'].startswith("T1-"):
+            v2 = random.randint(v0, 100)
+            v1 = random.randint(v2, 100)
+            self.v2, selv.v1 = map(lambda x: x / 100., [v2, v1])
+        else:
+            v3 = random.randint(0, 100)
+            v2 = random.randint(v3, 100)
+            v1 = random.randint(v2, 100)
+            self.v3, self.v2, selv.v1 = map(lambda x: x / 100., [v3, v2, v1])
 
     def str_payoff(self):
         pre = u"- " if self.payoff < 0 else u""
@@ -170,5 +172,3 @@ class Player(otree.models.BasePlayer):
         choiced_rn = choiced.round_number
         Player.objects.filter(participant=participant).update(
             final_payoff=choiced_payoff, final_payoff_round_number=choiced_rn)
-
-

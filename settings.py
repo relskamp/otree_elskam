@@ -157,39 +157,30 @@ SESSION_CONFIGS = [
         'name': 'elskamp_auction_game_t1_ua',
         'display_name': "Treatment 1-UA",
         'num_demo_participants': 2,
-        'app_sequence': [
-            "t1_ua",
-        ],
+        'app_sequence': ["auction"],
+        'treatment': "T1-UA",
     },
     {
         'name': 'elskamp_auction_game_t1_da',
-        'display_name': "Treatmen 1-DA",
+        'display_name': "Treatment 1-DA",
         'num_demo_participants': 2,
-        'app_sequence': [
-            "t1_da",
-        ],
+        'app_sequence': ["auction"],
+        'treatment': "T1-DA",
     },
     {
         'name': 'elskamp_auction_game_t2_ua',
         'display_name': "Treatment 2-UA",
         'num_demo_participants': 3,
-        'app_sequence': [
-            "t2_ua",
-        ],
+        'app_sequence': ["auction"],
+        'treatment': "T2-UA",
     },
     {
         'name': 'elskamp_auction_game_t2_da',
         'display_name': "Treatment 2-DA",
         'num_demo_participants': 3,
-        'app_sequence': [
-            "t2_da",
-        ],
+        'app_sequence': ["auction"],
+        'treatment': "T2-DA",
     },
 ]
-
-ELSKAM = {
-    "rounds": 2
-}
-
 
 otree.settings.augment_settings(globals())
