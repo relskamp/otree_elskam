@@ -36,7 +36,6 @@ class Constants:
     players_per_group = None
     num_rounds = 1
     start_money = c(5)
-    num_rounds = None
     players_per_group_t1 = 2
     players_per_group_t2 = 3
 
@@ -46,12 +45,13 @@ class Subsession(otree.models.BaseSubsession):
     def before_session_starts(self):
         players = self.get_players()
         if self.round_number == 1:
-            players_per_groups = (
-                players_per_group_t1
+            players_per_group = (
+                Constants.players_per_group_t1
                 if self.session.config['treatment'].startswith("T1-") else
-                players_per_group_t2)
+                Constants.players_per_group_t2)
             groups = [
-                players[i:i+n] for i in xrange(0, len(l), players_per_group)]
+                players[i:i+players_per_group]
+                for i in xrange(0, len(players), players_per_group)]
             self.set_groups(groups)
         else:
             self.match_players("perfect_strangers")
@@ -156,14 +156,14 @@ class Player(otree.models.BasePlayer):
 
     def set_values(self):
         if self.session.config['treatment'].startswith("T1-"):
-            v2 = random.randint(v0, 100)
+            v2 = random.randint(0, 100)
             v1 = random.randint(v2, 100)
-            self.v2, selv.v1 = map(lambda x: x / 100., [v2, v1])
+            self.v2, self.v1 = map(lambda x: x / 100., [v2, v1])
         else:
             v3 = random.randint(0, 100)
             v2 = random.randint(v3, 100)
             v1 = random.randint(v2, 100)
-            self.v3, self.v2, selv.v1 = map(lambda x: x / 100., [v3, v2, v1])
+            self.v3, self.v2, self.v1 = map(lambda x: x / 100., [v3, v2, v1])
 
     def str_payoff(self):
         pre = u"- " if self.payoff < 0 else u""

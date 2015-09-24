@@ -13,11 +13,10 @@ class Decide(Page):
 
     form_model = models.Player
 
-     def get_form_fields(self):
-        fields = ["bid_1", "bid_2"]
-        if self.session.config['treatment'].startswith("T2-"):
-            fields.append("bid_3")
-        return fields
+    def get_form_fields(self):
+        if self.session.config['treatment'].startswith("T1-"):
+            return ["bid_1", "bid_2"]
+        return ["bid_1", "bid_2", "bid_3"]
 
 
 class ResultsWaitPage(WaitPage):
