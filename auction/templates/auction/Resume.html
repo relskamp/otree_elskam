@@ -7,25 +7,20 @@
 
 {% block content %}
 
-    <ul>
-        <li>
-            In the game you accumulated
-            <span class="{% if player.total_payoff < 0%}text text-danger{%endif%}">
-                {{player.str_total_payoff}}
-            </span>
-        <li>
-            Your Final Payoff is
+    <div>
+        <p>
+            You final payoff is:
             <strong class="{% if player.final_payoff < 0%}text text-danger{%endif%}">
                 {{player.str_final_payoff}}
             </strong>
-            <small>
-                (Choiced randomly from round <code>{{player.final_payoff_round_number}}</code>)
-            </small>
-        </li>
-    </ul>
+            (auction profits from randomly selected auction round
+            <strong>{{player.final_payoff_round_number}}</strong> plus
+            <strong>{{constants.start_money}}</strong> participation reward)
+        </p>
+        <p>
+            Please patiently wait for further instructions.
+        </p>
+    </div>
 
-    <span class="pull-right">
-        {% next_button %}
-    </span>
     <br>
 {% endblock %}

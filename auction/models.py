@@ -33,17 +33,29 @@ keywords = ()
 
 class Constants:
     name_in_url = 'auction'
-    players_per_group = 2
+    players_per_group = None
     num_rounds = 1
     start_money = c(5)
     num_rounds = None
+    players_per_group_t1 = 2
+    players_per_group_t2 = 3
 
 
 class Subsession(otree.models.BaseSubsession):
 
     def before_session_starts(self):
-        self.match_players("perfect_strangers")
-        for player in self.get_players():
+        players = self.get_players()
+        if self.round_number == 1:
+            players_per_groups = (
+                players_per_group_t1
+                if self.session.config['treatment'].startswith("T1-") else
+                players_per_group_t2)
+            groups = [
+                players[i:i+n] for i in xrange(0, len(l), players_per_group)]
+            self.set_groups(groups)
+        else:
+            self.match_players("perfect_strangers")
+        for player in players:
             player.set_values()
 
 

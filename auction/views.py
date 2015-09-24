@@ -12,7 +12,12 @@ def vars_for_all_templates(self):
 class Decide(Page):
 
     form_model = models.Player
-    form_fields = ["bid_1", "bid_2"]
+
+     def get_form_fields(self):
+        fields = ["bid_1", "bid_2"]
+        if self.session.config['treatment'].startswith("T2-"):
+            fields.append("bid_3")
+        return fields
 
 
 class ResultsWaitPage(WaitPage):
