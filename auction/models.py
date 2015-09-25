@@ -12,8 +12,6 @@ import math
 
 from django.conf import settings
 
-import common
-
 
 doc = """
 Foo
