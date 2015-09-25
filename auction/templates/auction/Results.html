@@ -38,8 +38,8 @@
         <ul>
             <li>
                 <strong>Profits in this round: </strong>
-                <span class="{% if player.payoff < 0%} text text-danger {%endif%}">
-                    {{player.str_payoff}}
+                <span class="{% if player.round_profit < 0%} text text-danger {%endif%}">
+                    {{player.str_round_profit}}
                 </span>
             </li>
         </ul>

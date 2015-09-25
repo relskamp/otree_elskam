@@ -34,7 +34,7 @@ keywords = ()
 class Constants:
     name_in_url = 'auction'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 2
     start_money = c(5)
     players_per_group_t1 = 2
     players_per_group_t2 = 3
@@ -67,7 +67,7 @@ class Group(otree.models.BaseGroup):
 
     clearingprice = models.CurrencyField()
 
-    def set_payoffs(self):
+    def set_round_profit(self):
         treatment = self.session.config['treatment']
 
         bid_x_players = []
@@ -80,7 +80,7 @@ class Group(otree.models.BaseGroup):
             bid_x_players.append((player.bid_2, rf.pop(), player, 2))
             if treatment.startswith("T2-"):
                 bid_x_players.append((player.bid_3, rf.pop(), player, 3))
-            player_values[player] = list(player.values)
+            player_values[player] = list(player.values())
 
         bid_x_players.sort(key=lambda bxp: tuple(bxp[0:1]), reverse=True)
 
@@ -99,25 +99,17 @@ class Group(otree.models.BaseGroup):
                 player.win_bid_1 = True
                 player.item_win_bid_1 = item
                 player.profits_bid_1 = values.pop(0) - cost
-                player.payoff = (player.payoff or 0) + player.profits_bid_1
+                player.round_profit = (player.round_profit or 0) + player.profits_bid_1
             elif bid_number == 2:
                 player.win_bid_2 = True
                 player.item_win_bid_2 = item
                 player.profits_bid_2 = values.pop(0) - cost
-                player.payoff = (player.payoff or 0) + player.profits_bid_2
+                player.round_profit = (player.round_profit or 0) + player.profits_bid_2
             elif bid_number == 3:
                 player.win_bid_3 = True
                 player.item_win_bid_3 = item
                 player.profits_bid_3 = values.pop(0) - cost
-                player.payoff = (player.payoff or 0) + player.profits_bid_3
-
-        for player in players:
-            player.total_payoff = player.payoff
-            if self.subsession.round_number == 1:
-                player.total_payoff += Constants.start_money
-            else:
-                for pplayer in player.in_previous_rounds():
-                    player.total_payoff += pplayer.total_payoff
+                player.round_profit = (player.round_profit or 0) + player.profits_bid_3
 
 
 class Player(otree.models.BasePlayer):
@@ -126,8 +118,6 @@ class Player(otree.models.BasePlayer):
     group = models.ForeignKey(Group, null=True)
     subsession = models.ForeignKey(Subsession)
     # </built-in>
-
-    total_payoff = models.CurrencyField()
 
     bid_1 = models.CurrencyField(min=0, max=10, verbose_name="Your First Bid")
     bid_2 = models.CurrencyField(min=0, max=10, verbose_name="Your Second Bid")
@@ -146,8 +136,8 @@ class Player(otree.models.BasePlayer):
     v2 = models.CurrencyField(min=0, max=10)
     v3 = models.CurrencyField(min=0, max=10)
 
-    final_payoff = models.CurrencyField()
-    final_payoff_round_number = models.PositiveIntegerField()
+    round_profit = models.CurrencyField()
+    payoff_round_number = models.PositiveIntegerField()
 
     def values(self):
         if self.session.config['treatment'].startswith("T1-"):
@@ -156,31 +146,30 @@ class Player(otree.models.BasePlayer):
 
     def set_values(self):
         if self.session.config['treatment'].startswith("T1-"):
-            v2 = random.randint(0, 100)
-            v1 = random.randint(v2, 100)
+            v2 = random.randint(0, 1000)
+            v1 = random.randint(v2, 1000)
             self.v2, self.v1 = map(lambda x: x / 100., [v2, v1])
         else:
-            v3 = random.randint(0, 100)
-            v2 = random.randint(v3, 100)
-            v1 = random.randint(v2, 100)
+            v3 = random.randint(0, 1000)
+            v2 = random.randint(v3, 1000)
+            v1 = random.randint(v2, 1000)
             self.v3, self.v2, self.v1 = map(lambda x: x / 100., [v3, v2, v1])
 
     def str_payoff(self):
         pre = u"- " if self.payoff < 0 else u""
         return pre + unicode(c(abs(self.payoff)))
 
-    def str_total_payoff(self):
-        pre = u"- " if self.total_payoff < 0 else u""
-        return pre + unicode(c(abs(self.total_payoff)))
+    def str_round_profit(self):
+        pre = u"- " if self.round_profit < 0 else u""
+        return pre + unicode(c(abs(self.round_profit)))
 
-    def str_final_payoff(self):
-        pre = u"- " if self.final_payoff < 0 else u""
-        return pre + unicode(c(abs(self.final_payoff)))
-
-    def set_final_payoff(self):
+    def set_payoff(self):
         choiced = random.choice(self.in_all_rounds())
-        participant = choiced.participant
-        choiced_payoff = choiced.payoff
+        choiced_payoff = choiced.round_profit
         choiced_rn = choiced.round_number
-        Player.objects.filter(participant=participant).update(
-            final_payoff=choiced_payoff, final_payoff_round_number=choiced_rn)
+
+        self.payoff = choiced_payoff
+        self.payoff_round_number = choiced_rn
+
+
+

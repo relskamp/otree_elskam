@@ -34,6 +34,16 @@ class Constants:
         (c(10), c(10)), (c(18), c(6)), (c(26), c(2)),
         (c(34), -c(2)), (c(42), -c(6)),
     ]
+    ethnicities = [
+        "Aboriginal/First Nations/Mtis",
+        "White/European",
+        "Black/Africa/Caribbean",
+        "Southeast Asian (e.g., Chinese, Japanese, Korean, Vietnamese, Cambodian,Filipino.etc)",
+        "Arab (Saudi Arabian, Palestinian, Iraqi, etc)",
+        "South Asian (East Indian, Sri Lankan, etc)",
+        "Latin American (Costa Rican, Guatemalan, Brazilian, Columbian, etc)",
+        "West Asian (Iranian, Afghani, etc)",
+    ]
 
 
 class Subsession(otree.models.BaseSubsession):
@@ -55,7 +65,7 @@ class Player(otree.models.BasePlayer):
     # </built-in>
 
     gender = models.CharField(
-        max_length=255, choices=['Male', 'Female'],
+        max_length=255, choices=['Female', 'Male', 'Other', 'Decline'],
         verbose_name="What gender do you identify with?",
         widget=widgets.RadioSelectHorizontal())
 
@@ -67,13 +77,9 @@ class Player(otree.models.BasePlayer):
         verbose_name="What is your age?",
         widget=widgets.RadioSelectHorizontal())
 
-    ethnicity = models.CharField(
-        max_length=255, widget=widgets.RadioSelect(),
-        verbose_name="Please specify your ethnicity.",
-        choices=[
-            "White", "Hispanic or Latino", "Black or African American",
-            "Native American or American Indian", "Asian / Pacific Islander",
-            "Other"])
+    ethnicity = models.TextField(
+        widget=widgets.HiddenInput(),
+        verbose_name="Which of the following BEST describes your ethnic background? Please TICK ALL THAT APPLY.")
 
     education_level = models.CharField(
         verbose_name=(

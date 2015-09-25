@@ -22,7 +22,7 @@ class Decide(Page):
 class ResultsWaitPage(WaitPage):
 
     def after_all_players_arrive(self):
-        self.group.set_payoffs()
+        self.group.set_round_profit()
 
 
 class Results(Page):
@@ -36,10 +36,7 @@ class Results(Page):
                 "is_you": player == self.player,
                 "bid": player.bid_1,
                 "value": player.v1,
-                "won": player.win_bid_1,
-                "extra_bid": (
-                    "" if player.win_bid_1 else
-                    "<small><code>Market Price</code><small>")})
+                "won": player.win_bid_1})
             results.append({
                 "bidder": player,
                 "is_you": player == self.player,
@@ -65,7 +62,7 @@ class Results(Page):
 
     def before_next_page(self):
         if self.subsession.round_number == Constants.num_rounds:
-            self.player.set_final_payoff()
+            self.player.set_payoff()
 
 
 class Resume(Page):

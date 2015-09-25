@@ -10,12 +10,12 @@
     <div>
         <p>
             You final payoff is:
-            <strong class="{% if player.final_payoff < 0%}text text-danger{%endif%}">
-                {{player.str_final_payoff}}
+            <strong class="{% if player.payoff < 0%}text text-danger{%endif%}">
+                {{player.payoff}}
             </strong>
             (auction profits from randomly selected auction round
-            <strong>{{player.final_payoff_round_number}}</strong> plus
-            <strong>{{constants.start_money}}</strong> participation reward)
+            <strong>{{player.payoff_round_number}}</strong> plus
+            <strong>{{Constants.start_money}}</strong> participation reward)
         </p>
         <p>
             Please patiently wait for further instructions.
