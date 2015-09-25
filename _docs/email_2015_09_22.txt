@@ -1,0 +1,63 @@
+A.) Changes to be made on the "Decide" page:
+
+1.) The valuations appear to be incorrect as the the number 10 seems to be drawn a lot more than expected.   Just to clarify what we had discussed earlier, we require the following valuation structure:
+For a bidder with a demand of two auctioned goods (K=2) with weakly diminishing marginal valuations (v1>=v2), we require that the lower valuations (v2) be  drawn from a uniform
+distribution between 0 and 10 (i.e., v2~U[0,100] and then use this valuation as the lower support for the same bidder's highest valued unit: i.e.,  v1~u[v2,10].
+Alternatively, if the bidder has demand for three units where (v1>=v2>=v3) then we would like the values to be drawn as follows: v3~U[0,100];   v2~U[v3,100];  v1~U[v2,100].
+This valuation structure is important as our theoretical models depends this specific structure.
+2.) Remove the "Your balance is: XX" on all pages
+
+
+
+
+B.) Changes to be made on the "Results" page that appears after each auction round is completed describing the allocation:
+
+3.) When there is a tie in bids,  the order of the units won is incorrect.  For example, if a bidder bids the same bid for both units, and only one of his bids wins - the higher valued unit  should always be the unit that is won.
+4.) On the same results page, we would like to remove the "Total Profits" which accumulates the profits the bidder is winning across multiple auctions.  We only want the bidder to see the "Profits in this round"
+
+
+
+
+C.) Changes made to the final "Thank You For Playing" page:
+
+5.) Remove "In the game you accumulated" .  We want to replace this with:
+You final payoff  is: XXXX  (auction profits from randomly selected auction round XX plus $5 participation reward)
+Please patiently wait for further instructions.
+
+
+
+
+
+D.) Changes to be made on the "Payment" section of the "Session" page
+6.) "Variable profits" are actually accumulated profits  - we would like to change this to the profits earned from the randomly selected auction round chosen for payment.
+7.) Change the participation reward to $5
+
+
+
+
+E.) Changes to be made to "Questionnaire Section":
+8.) TYPO:  ..... "Part 1 consists of a short demographic questionnaire outlined below that you will earn a reward of $5.00 for completely"  --- change completely to completing. =
+9.) Change question (1) to:
+
+What gender do you identify with?
+(a) Female
+(b) Male
+(c) Other
+(d) Decline
+
+
+10.)  Change question (4) to the following:
+ Which of the following BEST describes your ethnic background? Please TICK ALL THAT APPLY.
+(a) Aboriginal/First Nations/Mtis
+(b) White/European
+(c) Black/Africa/Caribbean
+(d) Southeast Asian (e.g., Chinese, Japanese, Korean, Vietnamese, Cambodian,Filipino.etc)
+(e) Arab (Saudi Arabian, Palestinian, Iraqi, etc)
+(f) South Asian (East Indian, Sri Lankan, etc)
+(g) Latin American (Costa Rican, Guatemalan, Brazilian, Columbian, etc)
+(h) West Asian (Iranian, Afghani, etc)
+(i) Other (please specify)
+
+
+11.) Changes made to "Gambling Section"
+TYPO: "In this final part of the questionnaire, we ask you to select one of the hypothetical gamble" --- change gamble to gambles
