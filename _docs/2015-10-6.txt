@@ -1,0 +1,9 @@
+1.) Please restrict second unit bids to be less than or equal to first unit bids, and third unit bids to be less than or equal to second units bids.
+
+2.) We would like to change the payments such that the profits from two randomly selected auctions rather than just one are added to the  $5.00 participation reward  to make up the final payment that the subjects will receive.
+
+This will change the payment tabs as well as the Thank you for playing" page which will now read: "Your final payoff is: $4.51 (auction profits from randomly selected auction round 2 and auction round 1 plus $5.00 participation reward)"
+
+3.) Spelling correction: On the "Thank you for playing page" - where it says: "You final payoff is: $4.51 (auction profits from randomly selected auction round 2 plus $5.00 participation reward)" can you change it to "Your final payoff is....."
+
+Also, can you make this "final payoff" value the auction profits from the randomly selected rounds plus the $5 reward. Right now, the value is just the profits from the randomly selected round, instead, we want this figure to be the same as what we see on the payments tab so the subjects
