@@ -18,6 +18,13 @@ class Decide(Page):
             return ["bid_1", "bid_2"]
         return ["bid_1", "bid_2", "bid_3"]
 
+    def error_message(self, values):
+        if values["bid_2"] > values["bid_1"]:
+            return "Your second bid must be less than or equal to first one"
+        if self.session.config['treatment'].startswith("T2-"):
+            if values["bid_3"] > values["bid_2"]:
+                return "Your third bid must be less than or equal to second one"
+
 
 class ResultsWaitPage(WaitPage):
 

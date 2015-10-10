@@ -12,6 +12,8 @@ import math
 
 from django.conf import settings
 
+from . import match_players
+
 
 doc = """
 Foo
@@ -135,7 +137,7 @@ class Player(otree.models.BasePlayer):
     v3 = models.CurrencyField(min=0, max=10)
 
     round_profit = models.CurrencyField()
-    payoff_round_number = models.PositiveIntegerField()
+    payoff_rounds_numbers = models.TextField()
 
     def values(self):
         if self.session.config['treatment'].startswith("T1-"):
@@ -161,13 +163,18 @@ class Player(otree.models.BasePlayer):
         pre = u"- " if self.round_profit < 0 else u""
         return pre + unicode(c(abs(self.round_profit)))
 
+    def list_payoff_rounds_numbers(self):
+        return map(int, self.payoff_rounds_numbers.split(","))
+
     def set_payoff(self):
-        choiced = random.choice(self.in_all_rounds())
-        choiced_payoff = choiced.round_profit
-        choiced_rn = choiced.round_number
+        in_all_rounds = self.in_all_rounds()
+        random.shuffle(in_all_rounds)
 
-        self.payoff = choiced_payoff
-        self.payoff_round_number = choiced_rn
+        choices_rns, choices_payoff = [], 0
+        for c in in_all_rounds[:2]:
+            choices_payoff += c.round_profit
+            choices_rns.append(c.round_number)
+        choices_rns.sort()
 
-
-
+        self.payoff = choices_payoff
+        self.payoff_rounds_numbers = ",".join(map(str, choices_rns))
