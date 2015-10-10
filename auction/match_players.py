@@ -21,8 +21,6 @@ def round_robin(subssn):
 
     """
 
-    print "custom!!!!"
-
     def pxg2id(players):
         participant_ids = [player.participant_id for player in players]
         participant_ids.sort()

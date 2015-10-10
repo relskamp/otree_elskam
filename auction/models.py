@@ -28,14 +28,13 @@ bibliography = ()
 
 links = {}
 
-
 keywords = ()
 
 class Constants:
     name_in_url = 'auction'
     players_per_group = None
     num_rounds = 2
-    start_money = c(5)
+    start_money = c(settings.SESSION_CONFIG_DEFAULTS["participation_fee"])
     players_per_group_t1 = 2
     players_per_group_t2 = 3
 
@@ -165,6 +164,9 @@ class Player(otree.models.BasePlayer):
 
     def list_payoff_rounds_numbers(self):
         return map(int, self.payoff_rounds_numbers.split(","))
+
+    def final_payoff(self):
+        return self.payoff + Constants.start_money
 
     def set_payoff(self):
         in_all_rounds = self.in_all_rounds()
