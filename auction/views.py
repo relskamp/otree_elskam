@@ -6,7 +6,23 @@ from otree.common import Currency as c, currency_range
 from .models import Constants
 
 def vars_for_all_templates(self):
-    return {}
+    return {"treatment": self.session.config['treatment']}
+
+
+class Introduction(Page):
+    pass
+
+
+class AssignmentRulesAndProfitCalculations(Page):
+    pass
+
+
+class IllustrativeExamples(Page):
+    pass
+
+
+class AdditionalRemarks(Page):
+    pass
 
 
 class Decide(Page):
@@ -78,4 +94,9 @@ class Resume(Page):
         return self.subsession.round_number == Constants.num_rounds
 
 
-page_sequence = [Decide, ResultsWaitPage, Results, Resume]
+page_sequence = [
+    Introduction,
+    AssignmentRulesAndProfitCalculations,
+    IllustrativeExamples,
+    AdditionalRemarks,
+    Decide, ResultsWaitPage, Results, Resume]
