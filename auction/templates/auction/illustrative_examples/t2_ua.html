@@ -1,0 +1,179 @@
+{% load otree_tags %}
+
+<div class="row">
+    <p>
+    The following examples illustrate the uniform pricing rule and how profits are calculated.
+    Each example will be illustrated from the perspective of bidder A who is competing against two
+    rival bidders B and C. Each of the three bidders with demand for three units are competing in
+    one auction in which there are eight units of a homogeneous good to be auctioned.
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <h4>Table 1. Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+            <tr><td>1</td><td>won</td><td>{{6.3|c}}</td><td>{{6.3|c}}</td><td>A</td></tr>
+            <tr><td>2</td><td>won</td><td>{{5.9|c}}</td><td>{{5.9|c}}</td><td>C</td></tr>
+            <tr><td>3</td><td>won</td><td>{{5.6|c}}</td><td>{{5.6|c}}</td><td>B</td></tr>
+            <tr><td>4</td><td>won</td><td>{{6|c}}</td><td>{{6|c}}</td><td>A</td></tr>
+            <tr><td>5</td><td>won</td><td>{{5.7|c}}</td><td>{{5.7|c}}</td><td>C</td></tr>
+            <tr><td>6</td><td>won</td><td>{{5.4|c}}</td><td>{{5.4|c}}</td><td>B</td></tr>
+            <tr><td>7</td><td>won</td><td>{{4|c}}</td><td>{{4.1|c}}</td><td>B</td></tr>
+            <tr><td>8</td><td>won</td><td>{{2.7|c}}</td><td>{{3.3|c}}</td><td>C</td></tr>
+            <tr class="danger"><td>9</td><td>lost</td><td>{{2|c}}</td><td>{{4.4|c}}</td><td>A</td></tr>
+        </table>
+    </div>
+
+    <div class="col-md-5 col-md-offset-2">
+        <h4>Table 2. Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+            <tr><td>1</td><td>won</td><td>{{6.3|c}}</td><td>{{6.3|c}}</td><td>A</td></tr>
+            <tr><td>2</td><td>won</td><td>{{5.9|c}}</td><td>{{5.9|c}}</td><td>C</td></tr>
+            <tr><td>3</td><td>won</td><td>{{5.6|c}}</td><td>{{5.6|c}}</td><td>B</td></tr>
+            <tr><td>4</td><td>won</td><td>{{6|c}}</td><td>{{6|c}}</td><td>A</td></tr>
+            <tr><td>5</td><td>won</td><td>{{5.7|c}}</td><td>{{5.7|c}}</td><td>C</td></tr>
+            <tr><td>6</td><td>won</td><td>{{5.4|c}}</td><td>{{5.4|c}}</td><td>B</td></tr>
+            <tr><td>7</td><td>won</td><td>{{4|c}}</td><td>{{4.1|c}}</td><td>B</td></tr>
+            <tr><td>8</td><td>won</td><td>{{4|c}}</td><td>{{4.4|c}}</td><td>A</td></tr>
+            <tr class="danger"><td>9</td><td>lost</td><td>{{2.7|c}}</td><td>{{3.3|c}}</td><td>C</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <p><strong>Example 1.</strong> First, we focus on Table 1 in Example 1. Note bids have been sorted from highest
+        to lowest, values are shown next to the bids. The bid that determines the market price (the 9th
+        highest bid) has been highlighted and is the only bid below the dashed line - separating winning
+        and losing bids. The 8 highest bids above the dashed line each earn an item. Note, the clearing
+        price is always set by the only losing bid. In the example depicted in Table 1, bidder A earned 2
+        unit while bidder B and C both earned 3 units. Thus in the case of Table 1, Bidder A’s profits
+        are calculated as</p>
+    <ul>
+        <li>Unit 1: 6.3 - 2 = 4.3</li>
+        <li>Unit 2: 6.0 - 2 = 4.0</li>
+        <li>and nothing on unit 3</li>
+        <li>Total profit = 8.3</li>
+    </ul>
+    <p>In this example, Bidder A could have earned a third unit by bidding more, provided that bid
+    was sufficiently high to edge out Bidder C. Table 2 illustrates the case in which Bidder A changes
+    her bid on her third unit from 2 to 4; and all other bids are held constant. Focusing on Table 2,
+    we see that the clearing price is now 3. Bidder A wins 3 units and bidder B wins 3 units while
+    bidder C now only wins 2 and her losing bid sets the clearing price. Thus in the case of Table 2,
+    Bidder A’s profits are calculated as</p>
+    <ul>
+        <li>Unit 1: 6.3 - 2.7 = 3.6</li>
+        <li>Unit 2: 6.0 - 2.7 = 3.3</li>
+        <li>Units 3: 4.4 - 2.7 = 1.7</li>
+        <li>Total profits = 8.6</li>
+    </ul>
+    <p>In comparing the auction outcomes in Table 1 and Table 2, we see that Bidder A was able to
+        increase her profits by bidding marginally more on her third unit in order to win 3 units rather
+        than 2. However, it is important to point out in this example that in earning 3 (rather than 2)
+        unit, Bidder A caused the market clearing price to increase from 2.0 to 2.7. This directly affects
+        the price that Bidder A had to pay for her two higher valued unit. In the scenario represented in
+        Table 1 and Table 2, the increase in clearing price was small enough such that winning two units
+        rather than one unit increased total profits. It should be noted that this will not always be the
+        case.</p>
+</div>
+
+<div class="row">
+    <p><strong>Example 2.</strong> The next set of examples illustrates an alternative scenario in which Bidder A bids
+        higher on her third unit in order to win 3 rather than 2 unit and actually resulted in her earning
+        lower profits. In particular, Table 3 depicts an identical auction setting as in Table 1 expect for
+        the fact that we replaced bidder C’s valuation of 3.3 with a higher value of 4 and subsequently,
+        Bidder C increases her bid to 3.9.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <h4>Table 3. Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+            <tr><td>1</td><td>won</td><td>{{6.3|c}}</td><td>{{6.3|c}}</td><td>A</td></tr>
+            <tr><td>2</td><td>won</td><td>{{5.9|c}}</td><td>{{5.9|c}}</td><td>C</td></tr>
+            <tr><td>3</td><td>won</td><td>{{5.6|c}}</td><td>{{5.6|c}}</td><td>B</td></tr>
+            <tr><td>4</td><td>won</td><td>{{6|c}}</td><td>{{6|c}}</td><td>A</td></tr>
+            <tr><td>5</td><td>won</td><td>{{5.7|c}}</td><td>{{5.7|c}}</td><td>C</td></tr>
+            <tr><td>6</td><td>won</td><td>{{5.4|c}}</td><td>{{5.4|c}}</td><td>B</td></tr>
+            <tr><td>7</td><td>won</td><td>{{4|c}}</td><td>{{4.1|c}}</td><td>B</td></tr>
+            <tr><td>8</td><td>won</td><td>{{3.9|c}}</td><td>{{4|c}}</td><td>C</td></tr>
+            <tr class="danger"><td>9</td><td>lost</td><td>{{2|c}}</td><td>{{4.4|c}}</td><td>A</td></tr>
+        </table>
+    </div>
+
+    <div class="col-md-5 col-md-offset-2">
+        <h4>Table 4. Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+            <tr><td>1</td><td>won</td><td>{{6.3|c}}</td><td>{{6.3|c}}</td><td>A</td></tr>
+            <tr><td>2</td><td>won</td><td>{{5.9|c}}</td><td>{{5.9|c}}</td><td>C</td></tr>
+            <tr><td>3</td><td>won</td><td>{{5.6|c}}</td><td>{{5.6|c}}</td><td>B</td></tr>
+            <tr><td>4</td><td>won</td><td>{{6|c}}</td><td>{{6|c}}</td><td>A</td></tr>
+            <tr><td>5</td><td>won</td><td>{{5.7|c}}</td><td>{{5.7|c}}</td><td>C</td></tr>
+            <tr><td>6</td><td>won</td><td>{{5.4|c}}</td><td>{{5.4|c}}</td><td>B</td></tr>
+            <tr><td>7</td><td>won</td><td>{{4|c}}</td><td>{{4.1|c}}</td><td>B</td></tr>
+            <tr><td>8</td><td>won</td><td>{{4|c}}</td><td>{{4.4|c}}</td><td>A</td></tr>
+            <tr class="danger"><td>9</td><td>lost</td><td>{{3.9|c}}</td><td>{{4|c}}</td><td>C</td></tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <p>FFocusing on Table 3, we see that Bidder A earned 2 unit while bidder B and C both earned 3
+        units. Profits for bidder A on this unit are calculated as follows: the valuation of the unit less the
+        market price.</p>
+    <p>Thus in the case of Table 3, Bidder A’s profits are calculated as:</p>
+    <ul>
+        <li>Unit 1: 6.3 - 2 = 4.3</li>
+        <li>Unit 2 : 6.0 - 2 = 4.0</li>
+        <li>and nothing on unit 3</li>
+        <li>Total profits = 8.3</li>
+    </ul>
+    <p>As in the previous example, we are interested to see if Bidder A could increase her third unit
+        bids in order to win 3 (rather than 2) unit. Table 4 illustrates this case when Bidder A changes her
+        bid from 2 to 4 on her lower valued unit while keeping her bid on the higher valued units constant
+        as well as all bids from Bidder B and C constant. This change in bidding strategy resulted in the
+        clearing price now being set by Bidder C’s bid of 3.9. Bidder A wins 3 units and Bidder B wins 3
+        units while bidder C now only wins 2 and her losing bid sets the clearing price. Thus in the case
+        of Table 4, Bidder A’s profits are calculated as:</p>
+    <p>Consequently, total profits are lower in Table 4 where Bidder A won 3 units relative to Table 3
+        where Bidder A won only 2 unit.</p>
+    <p>To summarize, examples 1 and 2 illustrated the effect of Bidder A using different strategies
+        on total profits. As was the case in example 1, Bidder A earned more profit when she won 3
+        units compared to the case when she won 2 unit. However, example 2 illustrates an equally
+        likely scenario when Bidder A actually earned less revenue when she won 3 rather than 2 unit.
+        Underlying these two illustrative examples is the fact that winning 3 units instead of 2 unit will
+        almost surely increase the clearing price and thus directly reducing the profits you can earn on
+        the first unit. The net result is that in some cases it will be profitable to increase your bid on the
+        third unit (example 1) and in some cases it will not be profitable to increase your bid on the third
+        unit (example 2).</p>
+
+</div>
