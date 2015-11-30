@@ -54,35 +54,72 @@
 </div>
 
 <div class="row">
-    <p><strong>Example 1.</strong> First, we focus on Table 1 in Example 1. Note bids have been sorted from highest
-    to lowest, values are shown next to the bids. The 8 highest bids above the dashed line each earn
-    an item. In the example depicted in Table 1, Bidder A earned 2 unit while bidder B and C both
-    earned 3 units. Thus in the case of Table 1, Bidder A’s profits are calculated as</p>
+    <p><strong>Example 1.</strong>
+        First, we focus on Table 1 in Example 1. Note bids have been sorted
+        from highest to lowest, values are shown next to the bids. The 8 highest
+        bids above the dashed line each earn an item. In the example depicted in
+        Table 1, Bidder A earned 2 unit while bidder B and C both earned 3 units.
+        Thus in the case of Table 1, Bidder A’s profits are calculated as</p>
     <ul>
-        <li>Unit 1: 6.3 - 2 = 4.3</li>
-        <li>Unit 2: 6.0 - 2 = 4.0</li>
+        <li>Unit 1: 7.3 - 7 = 0.3</li>
+        <li>Unit 2: 6.3 - 5.8 = 0.5</li>
         <li>and nothing on unit 3</li>
-        <li>Total profit = 8.3</li>
+        <li>Total profit = 0.8</li>
     </ul>
-    <p>In this example, Bidder A could have earned a third unit by bidding more, provided that bid
-        was sufficiently high to edge out Bidder C. Table 2 illustrates the case in which Bidder A changes
-        her bid on her third unit from 2 to 4; and all other bids are held constant. Focusing on Table 2,
-        we see that Bidder A wins 3 units and bidder B wins 3 units while bidder C now only wins 2.
-        Thus in the case of Table 2, Bidder A’s profits are calculated as</p>
+    <p>In this example, Bidder A could have earned a third unit by bidding more,
+    provided that bid was sufficiently high to edge out Bidder C. Table 2 illustrates
+    the case in which Bidder A changes her bid on her third unit from 2 to 4; and all
+    other bids are held constant. Focusing on Table 2, we see that Bidder A wins 3
+    units and bidder B wins 3 units while bidder C now only wins 2. Thus in the
+    case of Table 2, Bidder A’s profits are calculated as</p>
     <ul>
-        <li>Unit 1: 6.3 - 2.7 = 3.6</li>
-        <li>Unit 2: 6.0 - 2.7 = 3.3</li>
-        <li>Units 3: 4.4 - 2.7 = 1.7</li>
-        <li>Total profits = 8.6</li>
+        <li>Unit 1: 7.3 - 7 = 0.3</li>
+        <li>Unit 2: 6.3 - 5.8 = 0.5</li>
+        <li>Units 3: 4.4 - 4.0 = 0.4
+        <li>Total profits = 1.2</li>
     </ul>
-    <p>In comparing the auction outcomes in Table 1 and Table 2, we see that Bidder A was able to
-        increase her profits by bidding marginally more on her third unit in order to win 3 units rather
-        than 2.</p>
+    <p>In comparing the auction outcomes in Table 1 and Table 2, we see that
+    Bidder A was able to increase her profits by bidding marginally more on
+    her third unit in order to win 3 units rather than 2.</p>
 </div>
 
 <div class="row">
-    <p><strong>Example 2.</strong> The next set of examples illustrates an alternative scenario in which Bidder A bids
-    lower on her first highest valued unit in order to win 3 units while earning more profits.</p>
+    <p><strong>Example 2.</strong> The next set of examples illustrates an
+    alternative scenario in which Bidder A bids lower on her first highest
+    valued unit in order to win 3 units while earning more profits.</p>
+    <p>Focusing on Table 3, we see that Bidder A earned 3 unit while bidder B
+    earned 3 units and Bidder C won only 2 units. Profits for bidder A on this
+    unit are calculated as follows: the valuation of the unit less the market price.</p>
+    <p>Thus in the case of Table 3, Bidder A’s profits are calculated as:</p>
+    <ul>
+        <li>Unit 1: 7.3 - 7.0 = 0.3</li>
+        <li>Unit 2 : 6.0 - 5.8 = 0.2</li>
+        <li>Unit 3: 4.4 - 4.0 = 0.4</li>
+        <li>Total profits = 0.9</li>
+    </ul>
+    <p>We are interested to see if Bidder A could decrease her first unit bids
+    in order to still win 3 units but increase her profits on winning the first
+    unit. Table 4 illustrates this case when Bidder A changes her first unit bid
+    from 7.0 to 6.0 while keeping her bid on the second and third unit constant.
+    Bidder A still wins 3 units but is no longer the highest bidder - she is
+    now the 3rd, 4th and 8th highest bidder - a ranking which is essentially
+    meaningless as all that matters is that she is among the 8 highest bids.
+    Thus in the case of Table 4, Bidder A’s profits are calculated as:</p>
+    <ul>
+        <li>Unit 1: 7.3 - 6.0 = 1.3</li>
+        <li>Unit 2 : 6.0 - 5.8 = 0.2</li>
+        <li>Unit 3: 4.4 - 4.0 = 0.4</li>
+        <li>Total profits = 1.9</li>
+    </ul>
+    <p>To summarize, examples 1 and 2 illustrated the effect of Bidder A using
+    different strategies on total profits. As was the case in example 1,
+    Bidder A earned more profit when she won 3 units compared to the case when
+    she won 3 unit. Example 2 illustrates an equally likely scenario when
+    Bidder A actually earned more revenue by lowering her bid on her first
+    unit while keeping her bid on the second and third units constant. Note,
+    it is never profitable for Bidder A to increase her first bid above her
+    valuation for a given unit due to the fact that she will necessarily earn
+    negative profit by paying more for a good than what she values it.</p>
 </div>
 
 <div class="row">
@@ -104,7 +141,7 @@
             <tr><td>6</td><td>won</td><td>{{5|c}}</td><td>{{5.4|c}}</td><td>B</td></tr>
             <tr><td>7</td><td>won</td><td>{{4|c}}</td><td>{{4.1|c}}</td><td>B</td></tr>
             <tr><td>8</td><td>won</td><td>{{4|c}}</td><td>{{4.4|c}}</td><td>A</td></tr>
-            <tr class="danger"><td>9</td><td>lost</td><td>{{2.7|c}}</td><td>{{3.3|c}}</td><td>A</td></tr>
+            <tr class="danger"><td>9</td><td>lost</td><td>{{2.7|c}}</td><td>{{3.3|c}}</td><td>C</td></tr>
         </table>
     </div>
 
@@ -119,13 +156,13 @@
                 <th>Bidder</th>
             </thead>
             <tr><td>1</td><td>won</td><td>{{6.9|c}}</td><td>{{7.1|c}}</td><td>C</td></tr>
-            <tr><td>3</td><td>won</td><td>{{6.4|c}}</td><td>{{6.6|c}}</td><td>B</td></tr>
+            <tr><td>2</td><td>won</td><td>{{6.4|c}}</td><td>{{6.6|c}}</td><td>B</td></tr>
+            <tr><td>3</td><td>won</td><td>{{6.0|c}}</td><td>{{7.3|c}}</td><td>A</td></tr>
             <tr><td>4</td><td>won</td><td>{{5.8|c}}</td><td>{{6|c}}</td><td>A</td></tr>
             <tr><td>5</td><td>won</td><td>{{5.4|c}}</td><td>{{5.9|c}}</td><td>C</td></tr>
             <tr><td>6</td><td>won</td><td>{{5|c}}</td><td>{{5.4|c}}</td><td>B</td></tr>
             <tr><td>7</td><td>won</td><td>{{4|c}}</td><td>{{4.1|c}}</td><td>B</td></tr>
             <tr><td>8</td><td>won</td><td>{{4|c}}</td><td>{{4.4|c}}</td><td>A</td></tr>
-            <tr><td>2</td><td>won</td><td>{{3|c}}</td><td>{{7.3|c}}</td><td>A</td></tr>
             <tr class="danger"><td>9</td><td>lost</td><td>{{2.7|c}}</td><td>{{3.3|c}}</td><td>C</td></tr>
         </table>
     </div>

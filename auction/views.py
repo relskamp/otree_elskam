@@ -10,19 +10,27 @@ def vars_for_all_templates(self):
 
 
 class Introduction(Page):
-    pass
+
+    def is_displayed(self):
+        return self.subsession.round_number == 1
 
 
 class AssignmentRulesAndProfitCalculations(Page):
-    pass
+
+    def is_displayed(self):
+        return self.subsession.round_number == 1
 
 
 class IllustrativeExamples(Page):
-    pass
+
+    def is_displayed(self):
+        return self.subsession.round_number == 1
 
 
 class AdditionalRemarks(Page):
-    pass
+
+    def is_displayed(self):
+        return self.subsession.round_number == 1
 
 
 class Decide(Page):
