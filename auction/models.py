@@ -118,9 +118,9 @@ class Player(otree.models.BasePlayer):
     subsession = models.ForeignKey(Subsession)
     # </built-in>
 
-    bid_1 = models.CurrencyField(min=0, max=10, verbose_name="Your First Bid")
-    bid_2 = models.CurrencyField(min=0, max=10, verbose_name="Your Second Bid")
-    bid_3 = models.CurrencyField(min=0, max=10, verbose_name="Your Third Bid")
+    bid_1 = models.CurrencyField(min=0, max=100, verbose_name="Your First Bid")
+    bid_2 = models.CurrencyField(min=0, max=100, verbose_name="Your Second Bid")
+    bid_3 = models.CurrencyField(min=0, max=100, verbose_name="Your Third Bid")
     profits_bid_1 = models.CurrencyField(default=0)
     profits_bid_2 = models.CurrencyField(default=0)
     profits_bid_3 = models.CurrencyField(default=0)
@@ -131,9 +131,9 @@ class Player(otree.models.BasePlayer):
     item_win_win_2 = models.PositiveIntegerField()
     item_win_win_3 = models.PositiveIntegerField()
 
-    v1 = models.CurrencyField(min=0, max=10)
-    v2 = models.CurrencyField(min=0, max=10)
-    v3 = models.CurrencyField(min=0, max=10)
+    v1 = models.CurrencyField(min=0, max=100)
+    v2 = models.CurrencyField(min=0, max=100)
+    v3 = models.CurrencyField(min=0, max=100)
 
     round_profit = models.CurrencyField()
     payoff_rounds_numbers = models.TextField()
@@ -147,12 +147,12 @@ class Player(otree.models.BasePlayer):
         if self.session.config['treatment'].startswith("T1-"):
             v2 = random.randint(0, 1000)
             v1 = random.randint(v2, 1000)
-            self.v2, self.v1 = map(lambda x: x / 100., [v2, v1])
+            self.v2, self.v1 = map(lambda x: x / 10., [v2, v1])
         else:
             v3 = random.randint(0, 1000)
             v2 = random.randint(v3, 1000)
             v1 = random.randint(v2, 1000)
-            self.v3, self.v2, self.v1 = map(lambda x: x / 100., [v3, v2, v1])
+            self.v3, self.v2, self.v1 = map(lambda x: x / 10., [v3, v2, v1])
 
     def str_payoff(self):
         pre = u"- " if self.payoff < 0 else u""
@@ -178,5 +178,5 @@ class Player(otree.models.BasePlayer):
             choices_rns.append(c.round_number)
         choices_rns.sort()
 
-        self.payoff = choices_payoff
+        self.payoff = (choices_payoff)/10
         self.payoff_rounds_numbers = ",".join(map(str, choices_rns))

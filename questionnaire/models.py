@@ -32,7 +32,7 @@ class Constants:
     payoff = c(5)
     gambles_payoff = [
         (c(10), c(10)), (c(18), c(6)), (c(26), c(2)),
-        (c(34), -c(2)), (c(42), -c(6)),
+        (c(34), c(- 2)), (c(42), c(- 6)),
     ]
     ethnicities = [
         "Aboriginal/First Nations/Mtis",
