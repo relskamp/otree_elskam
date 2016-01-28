@@ -122,7 +122,7 @@ class Player(otree.models.BasePlayer):
         choices=["never", "occasionally", "frequently"])
 
     auctions_experience = models.CharField(
-        verbose_name="How would you rate you previous experience with auctions?",
+        verbose_name="How would you rate your previous experience with auctions?",
         widget=widgets.RadioSelectHorizontal(), max_length=255,
         choices=[
             "no previous experience with auctions",

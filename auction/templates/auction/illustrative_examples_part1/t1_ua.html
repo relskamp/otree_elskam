@@ -1,0 +1,117 @@
+{% load otree_tags %}
+
+<div class="row">
+    <p>
+    The following examples illustrate how the auction works and how profits are calculated.  In this example, there are  two bidders (Bidder A and Bidder B) each with a demand for two units who are competing against eachother in market
+    in which there are three units of the same good to be auctioned.
+    </p>
+    
+    
+    <p>
+Suppose Bidder A recieves randomly assigned values of 63 and 44 and Bidder B recieves randomly assigned values of  56 and 48.
+    </p>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <h4>Table 1. Assigning Values</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+            <tr><td>1</td><td></td><td>{{|c}}</td><td>{{63|c}}</td><td>A</td></tr>
+              <tr><td>2</td><td></td><td>{{|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+            <tr><td>3</td><td></td><td>{{|c}}</td><td>{{56|c}}</td><td>B</td></tr>
+            <tr><td>4</td><td></td><td>{{|c}}</td><td>{{48|c}}</td><td>B</td></tr>
+        </table>
+    </div>
+
+
+
+
+
+<p>
+Now uppose Bidder A bids 63 for the first unit and 20 for the second unit she demands.  Similarily, Bidder B bis 56 for the first unit and 28 for the second unit she demand.
+</p>
+
+
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <h4>Table 2. Placing Bids</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+            <tr><td>1</td><td></td><td>{{63|c}}</td><td>{{63|c}}</td><td>A</td></tr>
+            <tr><td>2</td><td></td><td>{{20|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+            <tr><td>3</td><td></td><td>{{56|c}}</td><td>{{56|c}}</td><td>B</td></tr>
+            <tr><td>4</td><td></td><td>{{28|c}}</td><td>{{48|c}}</td><td>B</td></tr>
+        </table>
+    </div>
+    
+    
+    
+    
+
+<p>
+Once all the bids are submitted, the computer will sort the bids from highest to lowerst.  As you see in the table below, the first three highest bids have won the units.  The fourth highest bid lost the item.  The fourth highest bid highlighted in pink will set the market price that the winning bidders will have to pay for the units won.
+</p>
+
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <h4>Table 1. Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+            <tr><td>1</td><td>won</td><td>{{63|c}}</td><td>{{63|c}}</td><td>A</td></tr>
+            <tr><td>2</td><td>won</td><td>{{56|c}}</td><td>{{56|c}}</td><td>B</td></tr>
+            <tr><td>3</td><td>won</td><td>{{28|c}}</td><td>{{48|c}}</td><td>B</td></tr>
+            <tr class="danger"><td>4</td><td>lost</td><td>{{20|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+        </table>
+    </div>
+
+
+
+<p> In the example depicted in Table 1, bidder A earned 1
+unit while bidder B earned 2 units.  Bidder A’s profits are calculated
+as</p>
+
+<ul>
+    <li>Unit 1: 56 - 20 = 43</li>
+    <li>and nothing on unit 2</li>
+    <li>Total profits = 43</li>
+    </ul>
+
+<p>  Bidder B’s profits are calculated
+as</p>
+
+<ul>
+    <li>Unit 1: 63 - 20 = 43</li>
+    <li>Unit 2: 48 - 20 = 28</li>
+    <li>Total profits = 71</li>
+    </ul>
+
+
+</div>

@@ -21,8 +21,13 @@ class AssignmentRulesAndProfitCalculations(Page):
         return self.subsession.round_number == 1
 
 
-class IllustrativeExamples(Page):
+class IllustrativeExamplesPart1(Page):
 
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+class IllustrativeExamplesPart2(Page):
+    
     def is_displayed(self):
         return self.subsession.round_number == 1
 
