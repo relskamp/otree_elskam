@@ -31,9 +31,18 @@ class IllustrativeExamplesPart2(Page):
     def is_displayed(self):
         return self.subsession.round_number == 1
 
+class IllustrativeExamplesPart3(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
 
 class AdditionalRemarks(Page):
 
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+class FinalPage(Page):
+    
     def is_displayed(self):
         return self.subsession.round_number == 1
 
@@ -110,6 +119,9 @@ class Resume(Page):
 page_sequence = [
     Introduction,
     AssignmentRulesAndProfitCalculations,
-    IllustrativeExamples,
+    IllustrativeExamplesPart1,
+    IllustrativeExamplesPart2,
+    IllustrativeExamplesPart3,
     AdditionalRemarks,
+    FinalPage,
     Decide, ResultsWaitPage, Results, Resume]

@@ -1,0 +1,97 @@
+{% load otree_tags %}
+
+
+<div class="row">
+    <p>Example 2 is depicted from the same perspective of Bidder A who is competing against Bidder B and Bidder C.  Example 2 differs from Example 1 in that it presents  an alternative scenario in which Bidder A bids lower on her first unit to earn more profits.</p>
+    
+    
+    
+    
+    <div class="row">
+        <div class="col-md-5">
+            <h4>Table 3. Auction Outcomes</h4>
+            <table class="table table-hover">
+                <thead>
+                    <th>#</th>
+                    <th>Status</th>
+                    <th>Bid</th>
+                    <th>Value</th>
+                    <th>Bidder</th>
+                </thead>
+                <tr><td>1</td><td>won</td><td>{{70|c}}</td><td>{{73|c}}</td><td>A</td></tr>
+                <tr><td>2</td><td>won</td><td>{{69|c}}</td><td>{{71|c}}</td><td>C</td></tr>
+                <tr><td>3</td><td>won</td><td>{{64|c}}</td><td>{{66|c}}</td><td>B</td></tr>
+                <tr><td>4</td><td>won</td><td>{{58|c}}</td><td>{{60|c}}</td><td>A</td></tr>
+                <tr><td>5</td><td>won</td><td>{{54|c}}</td><td>{{59|c}}</td><td>C</td></tr>
+                <tr><td>6</td><td>won</td><td>{{50|c}}</td><td>{{54|c}}</td><td>B</td></tr>
+                <tr><td>7</td><td>won</td><td>{{44|c}}</td><td>{{41|c}}</td><td>B</td></tr>
+                <tr><td>8</td><td>won</td><td>{{40|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+                <tr class="danger"><td>9</td><td>lost</td><td>{{27|c}}</td><td>{{33|c}}</td><td>C</td></tr>
+            </table>
+        </div>
+        
+        <div class="col-md-5 col-md-offset-2">
+            <h4>Table 4. Auction Outcomes</h4>
+            <table class="table table-hover">
+                <thead>
+                    <th>#</th>
+                    <th>Status</th>
+                    <th>Bid</th>
+                    <th>Value</th>
+                    <th>Bidder</th>
+                </thead>
+                <tr><td>1</td><td>won</td><td>{{69|c}}</td><td>{{71|c}}</td><td>C</td></tr>
+                <tr><td>2</td><td>won</td><td>{{64|c}}</td><td>{{66|c}}</td><td>B</td></tr>
+                <tr><td>3</td><td>won</td><td>{{60|c}}</td><td>{{73|c}}</td><td>A</td></tr>
+                <tr><td>4</td><td>won</td><td>{{58|c}}</td><td>{{60|c}}</td><td>A</td></tr>
+                <tr><td>5</td><td>won</td><td>{{54|c}}</td><td>{{59|c}}</td><td>C</td></tr>
+                <tr><td>6</td><td>won</td><td>{{50|c}}</td><td>{{54|c}}</td><td>B</td></tr>
+                <tr><td>7</td><td>won</td><td>{{40|c}}</td><td>{{41|c}}</td><td>B</td></tr>
+                <tr><td>8</td><td>won</td><td>{{40|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+                <tr class="danger"><td>9</td><td>lost</td><td>{{27|c}}</td><td>{{33|c}}</td><td>C</td></tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="row">
+    
+    
+    <p>Focusing on Table 3, we see that Bidder A earned 3 unit while bidder B
+    earned 3 units and Bidder C won only 2 units. Profits for bidder A on this
+    unit are calculated as follows: the valuation of the unit less the market price.</p>
+    <p>Thus in the case of Table 3, Bidder A’s profits are calculated as:</p>
+    <ul>
+        <li>Unit 1: $73 - $70 = $3</li>
+        <li>Unit 2 : $60 - $58 = $2</li>
+        <li>Unit 3: $44 - $40 = $4</li>
+        <li>Total profits = $9</li>
+    </ul>
+    <p>We are interested to see if Bidder A could decrease her first unit bids
+    in order to still win 3 units but increase her profits on winning the first
+    unit. Table 4 illustrates this case when Bidder A changes her first unit bid
+    from $70 to $60 while keeping her bid on the second and third unit constant.
+    Bidder A still wins 3 units but is no longer the highest bidder - she is
+    now the 3rd, 4th and 8th highest bidder.
+    Thus in the case of Table 4, Bidder A’s profits are calculated as:</p>
+    <ul>
+        <li>Unit 1: $73 - $60 = $13</li>
+        <li>Unit 2 : $60 - $58 = $2</li>
+        <li>Unit 3: $44 - $40 = $4</li>
+        <li>Total profits = $19</li>
+    </ul>
+    <p>To summarize, examples 1 and 2 illustrated the effect of Bidder A using
+    different strategies on total profits. As was the case in example 1,
+    Bidder A earned more profit when she won 3 units compared to the case when
+    she won 2 units. Example 2 illustrates another scenario when
+    Bidder A actually earned more revenue by lowering her bid on her first
+    unit while keeping her bid on the second and third units constant. Note,
+    it is never profitable for Bidder A to increase her bid above her
+    valuation  due to the fact that she will necessarily earn
+    negative profit by paying more for a good than what she values it.</p>
+</div>
+
+
+
+
+
+
