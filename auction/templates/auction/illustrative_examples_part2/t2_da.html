@@ -1,65 +1,57 @@
 {% load otree_tags %}
 
 <div class="row">
-    <p> Example 1 is depicted from the perspective of Bidder A who is competing against two
-    competitors: Bidders B and Bidder C. Each of these three bidders with demand for three units are competing in
-    an auction in which there are eight units of the same good up for sale.</p>
+    <p>     Continuing with our illustrative scenario, Example 1  focuses on Bidder A's problem.</p>
 </div>
 
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-4">
         <h4>Table 1. Auction Outcomes</h4>
         <table class="table table-hover">
             <thead>
-                <th>#</th>
+            
                 <th>Status</th>
                 <th>Bid</th>
                 <th>Value</th>
                 <th>Bidder</th>
             </thead>
-            <tr><td>1</td><td>won</td><td>{{70|c}}</td><td>{{73|c}}</td><td>A</td></tr>
-            <tr><td>2</td><td>won</td><td>{{69|c}}</td><td>{{71|c}}</td><td>C</td></tr>
-            <tr><td>3</td><td>won</td><td>{{64|c}}</td><td>{{66|c}}</td><td>B</td></tr>
-            <tr><td>4</td><td>won</td><td>{{58|c}}</td><td>{{63|c}}</td><td>A</td></tr>
-            <tr><td>5</td><td>won</td><td>{{54|c}}</td><td>{{59|c}}</td><td>C</td></tr>
-            <tr><td>6</td><td>won</td><td>{{50|c}}</td><td>{{54|c}}</td><td>B</td></tr>
-            <tr><td>7</td><td>won</td><td>{{40|c}}</td><td>{{41|c}}</td><td>B</td></tr>
-            <tr><td>8</td><td>won</td><td>{{27|c}}</td><td>{{33|c}}</td><td>C</td></tr>
-            <tr class="danger"><td>9</td><td>lost</td><td>{{20|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+           <td>won</td><td>{{70|c}}</td><td>{{73|c}}</td><td>A</td></tr>
+            <td>won</td><td>{{69|c}}</td><td>{{71|c}}</td><td>C</td></tr>
+            <td>won</td><td>{{64|c}}</td><td>{{66|c}}</td><td>B</td></tr>
+           <td>won</td><td>{{58|c}}</td><td>{{63|c}}</td><td>A</td></tr>
+            <td>won</td><td>{{54|c}}</td><td>{{59|c}}</td><td>C</td></tr>
+            <td>won</td><td>{{50|c}}</td><td>{{54|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{40|c}}</td><td>{{41|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{27|c}}</td><td>{{33|c}}</td><td>C</td></tr>
+            <tr class="danger"><td>lost</td><td>{{20|c}}</td><td>{{44|c}}</td><td>A</td></tr>
         </table>
     </div>
 
-    <div class="col-md-5 col-md-offset-2">
+    <div class="col-md-4 col-md-offset-2">
         <h4>Table 2. Auction Outcomes</h4>
         <table class="table table-hover">
             <thead>
-                <th>#</th>
+              
                 <th>Status</th>
                 <th>Bid</th>
                 <th>Value</th>
                 <th>Bidder</th>
             </thead>
-            <tr><td>1</td><td>won</td><td>{{70|c}}</td><td>{{73|c}}</td><td>A</td></tr>
-            <tr><td>2</td><td>won</td><td>{{69|c}}</td><td>{{71|c}}</td><td>C</td></tr>
-            <tr><td>3</td><td>won</td><td>{{64|c}}</td><td>{{66|c}}</td><td>B</td></tr>
-            <tr><td>4</td><td>won</td><td>{{58|c}}</td><td>{{60|c}}</td><td>A</td></tr>
-            <tr><td>5</td><td>won</td><td>{{54|c}}</td><td>{{59|c}}</td><td>C</td></tr>
-            <tr><td>6</td><td>won</td><td>{{50|c}}</td><td>{{54|c}}</td><td>B</td></tr>
-            <tr><td>7</td><td>won</td><td>{{40|c}}</td><td>{{41|c}}</td><td>B</td></tr>
-            <tr><td>8</td><td>won</td><td>{{40|c}}</td><td>{{44|c}}</td><td>A</td></tr>
-            <tr class="danger"><td>9</td><td>lost</td><td>{{27|c}}</td><td>{{33|c}}</td><td>A</td></tr>
+           <td>won</td><td>{{70|c}}</td><td>{{73|c}}</td><td>A</td></tr>
+            <td>won</td><td>{{69|c}}</td><td>{{71|c}}</td><td>C</td></tr>
+           <td>won</td><td>{{64|c}}</td><td>{{66|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{58|c}}</td><td>{{60|c}}</td><td>A</td></tr>
+            <td>won</td><td>{{54|c}}</td><td>{{59|c}}</td><td>C</td></tr>
+            <td>won</td><td>{{50|c}}</td><td>{{54|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{40|c}}</td><td>{{41|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{40|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+            <tr class="danger"><td>lost</td><td>{{27|c}}</td><td>{{33|c}}</td><td>A</td></tr>
         </table>
     </div>
 </div>
 
 <div class="row">
-    <p>First, we focus on Table 1. Note bids have been sorted
-        from highest to lowest, values are shown next to the bids.
-        The 9th highest bid  has been highlighted with a pink background and will always be the only losing bid.
-        
-        The 8 highest
-        bids above  this pink background each earn an item. In the example depicted in
-        Table 1, Bidder A earned 2 unit while Bidder B and Bidder C both earned 3 units.
+    <p>First, we focus on Table 1. Note  Bidder A earned 2 units while Bidder B and Bidder C both earned 3 units.
         Thus in the case of Table 1, Bidder A’s profits are calculated as</p>
     <ul>
         <li>Unit 1: $73 - $70 = $3</li>
