@@ -32,12 +32,12 @@ class Constants:
     payoff = c(5)
     gambles_payoff = [
         (c(10), c(10)), (c(18), c(6)), (c(26), c(2)),
-        (c(34), c(- 2)), (c(42), c(- 6)),
+        (c(34), -c(2)), (c(42), -c(6)),
     ]
     ethnicities = [
-        "Aboriginal/First Nations/Mtis",
+        "Aboriginal/First Nations/Metis",
         "White/European",
-        "Black/Africa/Caribbean",
+        "Black/African/Caribbean",
         "Southeast Asian (e.g., Chinese, Japanese, Korean, Vietnamese, Cambodian,Filipino.etc)",
         "Arab (Saudi Arabian, Palestinian, Iraqi, etc)",
         "South Asian (East Indian, Sri Lankan, etc)",
@@ -85,7 +85,7 @@ class Player(otree.models.BasePlayer):
         verbose_name=(
             "What is the highest degree or level of school you have completed?"
             " If currently enrolled, highest degree received."),
-        max_length=255, widget=widgets.RadioSelect(),
+        max_length=255, widget=widgets.RadioSelectHorizontal(),
         choices=[
             "High school graduate, diploma or the equivalent",
             "Some college credit, no degree",
@@ -122,7 +122,7 @@ class Player(otree.models.BasePlayer):
         choices=["never", "occasionally", "frequently"])
 
     auctions_experience = models.CharField(
-        verbose_name="How would you rate your previous experience with auctions?",
+        verbose_name="How would you rate you previous experience with auctions?",
         widget=widgets.RadioSelectHorizontal(), max_length=255,
         choices=[
             "no previous experience with auctions",

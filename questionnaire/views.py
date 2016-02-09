@@ -30,5 +30,7 @@ class Gamble(Page):
     form_model = models.Player
     form_fields = ["gamble"]
 
+class Link(Page):
+    pass 
 
-page_sequence = [Welcome, Question, Gamble]
+page_sequence = [Welcome, Question, Gamble, Link]
