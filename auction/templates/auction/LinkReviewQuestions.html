@@ -1,0 +1,24 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Link to Review Questions
+{% endblock %}
+
+{% block content %}
+
+    <p>This is  the end of the instructions.  You will now answer eight review questions to test your understanding of the auction game.  Please type in the following link into a new tab of your web browser to get re-directed to the review questions: </p>
+
+<p>http://www.renekirkegaard.com/page-experiment/review_questions </p>
+
+
+
+<span class="pull-right">
+    {% next_button %}
+</span>
+
+  <br>
+
+
+
+{% endblock %}

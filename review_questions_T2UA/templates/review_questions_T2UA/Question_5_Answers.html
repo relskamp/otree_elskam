@@ -1,0 +1,24 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+   Answers
+{% endblock %}
+
+
+{% block content %}
+
+<ol class="pretty-ol">
+
+
+
+<p><b>QUESTION</b>: If you win an item, what price do you pay?</p>
+<p><b>ANSWER</b>: The market price  determined by the losing bid - the ninth highest bid </p>
+
+
+
+<span class="pull-right">
+    {% next_button %}
+</span>
+<br>
+{% endblock %}

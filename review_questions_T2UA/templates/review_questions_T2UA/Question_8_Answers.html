@@ -1,0 +1,45 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+   Answers
+{% endblock %}
+
+
+{% block content %}
+
+<ol class="pretty-ol">
+
+
+<p><b>QUESTION</b>: Calculate the profits earned by <b>Bidder B</b> on <b>all units purchased</b> in the example depicted in Table 1.</p>
+<p><b>ANSWER</b>: ($86 - $15) + ($56 - $15) + ($48 - $15) = $147 </p>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                 <th>Profit Earned</th>
+                <th>Bidder</th>
+            </thead>
+            <td>won</td><td>{{98|c}}</td><td>{{98|c}}</td><td>{{98|c}} - {{15|c}} = {{83|c}}</td><td>A</td></tr>
+            <td>won</td><td>{{90|c}}</td><td>{{90|c}}</td><td>{{90|c}} - {{15|c}} = {{75|c}}</td><td>A</td></tr>
+            <td>won</td><td>{{86|c}}</td><td>{{86|c}}</td><td>{{86|c}} - {{15|c}} = {{71|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{56|c}}</td><td>{{56|c}}</td><td>{{56|c}} - {{15|c}} = {{41|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{20|c}}</td><td>{{48|c}}</td><td>{{48|c}} - {{15|c}} = {{33|c}}</td><td>B</td></tr>
+            <tr class="danger"><td>lost</td><td>{{15|c}}</td><td>{{44|c}}</td><td>{{0|c}}</td><td>A</td></tr>
+        </table>
+    </div>
+</div>
+
+
+<span class="pull-right">
+    {% next_button %}
+</span>
+<br>
+
+{% endblock %}

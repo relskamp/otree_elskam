@@ -39,6 +39,10 @@ class Constants:
     players_per_group_t2 = 3
 
 
+
+
+
+
 class Subsession(otree.models.BaseSubsession):
 
     def before_session_starts(self):
@@ -56,6 +60,13 @@ class Subsession(otree.models.BaseSubsession):
             self.match_players("perfect_strangers")
         for player in players:
             player.set_values()
+
+
+
+
+
+
+
 
 
 class Group(otree.models.BaseGroup):
@@ -109,6 +120,9 @@ class Group(otree.models.BaseGroup):
                 player.item_win_bid_3 = item
                 player.profits_bid_3 = values.pop(0) - cost
                 player.round_profit = (player.round_profit or 0) + player.profits_bid_3
+
+
+
 
 
 class Player(otree.models.BasePlayer):
@@ -180,3 +194,5 @@ class Player(otree.models.BasePlayer):
 
         self.payoff = (choices_payoff)/10
         self.payoff_rounds_numbers = ",".join(map(str, choices_rns))
+
+

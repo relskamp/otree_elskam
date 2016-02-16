@@ -153,6 +153,46 @@ SESSION_CONFIGS = [
             "questionnaire",
         ],
     },
+                   
+                 
+    {
+        'name': 'elskamp_auction_game_review_T1UA',
+         'display_name': "Review_Questions_T1UA",
+         'num_demo_participants': 8,
+         'app_sequence': [
+           "review_questions_T1UA",
+        ],
+    },
+
+    {
+        'name': 'elskamp_auction_game_review_T1DA',
+        'display_name': "Review_Questions_T1DA",
+        'num_demo_participants': 8,
+        'app_sequence': [
+         "review_questions_T1DA",
+          ],
+       },
+                   
+      {
+    'name': 'elskamp_auction_game_review_T2UA',
+    'display_name': "Review_Questions_T2UA",
+    'num_demo_participants': 8,
+    'app_sequence': [
+    "review_questions_T2UA",
+           ],
+      },
+                   
+   {
+   'name': 'elskamp_auction_game_review_T2DA',
+    'display_name': "Review_Questions_T2DA",
+    'num_demo_participants': 8,
+    'app_sequence': [
+    "review_questions_T2DA",
+   ],
+    },
+                  
+                                
+                   
     {
         'name': 'elskamp_auction_game_t1_ua',
         'display_name': "Treatment 1-UA",

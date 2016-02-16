@@ -1,0 +1,25 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+   Answers
+{% endblock %}
+
+
+{% block content %}
+
+<ol class="pretty-ol">
+
+    
+     <p><b>QUESTION</b>:  Will your valuations be drawn anew before each auction round?</p>
+
+<p><b>ANSWER</b>: Yes </p>
+
+
+<span class="pull-right">
+    {% next_button %}
+</span>
+<br>
+
+
+{% endblock %}

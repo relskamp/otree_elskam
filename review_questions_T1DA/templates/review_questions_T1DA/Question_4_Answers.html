@@ -1,0 +1,26 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+   Answers
+{% endblock %}
+
+
+{% block content %}
+
+<ol class="pretty-ol">
+
+    
+
+
+<p><b>QUESTION</b>:  How are your valuations determined?</p>
+<p><b>ANSWER</b>: The valuation on the second unit (v2) is randomly drawn between 0 and 100, and the value on the first unit (v1) is drawn randomly from the interval between v2 and 100. </p>
+
+
+
+<span class="pull-right">
+    {% next_button %}
+</span>
+<br>
+
+{% endblock %}

@@ -127,6 +127,9 @@ class Player(otree.models.BasePlayer):
         choices=[
             "no previous experience with auctions",
             "occasional use of auctions", "frequent use of auctions"])
+            
+            
+           
 
     gamble = models.PositiveIntegerField(min=1, max=5)
 

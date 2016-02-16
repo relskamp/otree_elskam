@@ -1,0 +1,19 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+   Answers
+{% endblock %}
+
+{% block content %}
+
+<ol class="pretty-ol">
+    <p><b>QUESTION</b>: How many bids will you submit in each auction round?</p>
+    
+  <p><b>ANSWER</b>: You will submit three bids in each auction round - one for each unit you demand. </p>
+
+<span class="pull-right">
+    {% next_button %}
+</span>
+<br>
+{% endblock %}
