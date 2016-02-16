@@ -1,0 +1,84 @@
+{% load otree_tags %}
+<div class="row">
+        
+            <p>Example 2 continues with the same perspective of Bidder A but differs from Example 1 as it presents  an alternative scenario in which Bidder C is bidding more aggressively.  And as a result of this change in environment, when Bidder A increases  her bid on the third unit in order to purchase three rather than two units, it results  in her earning lower profits.</p>
+            
+            
+        
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <h4>Table 3. Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+            <tr><td>1</td><td>won</td><td>{{63|c}}</td><td>{{63|c}}</td><td>A</td></tr>
+            <tr><td>2</td><td>won</td><td>{{60|c}}</td><td>{{60|c}}</td><td>A</td></tr>
+            <tr><td>3</td><td>won</td><td>{{59|c}}</td><td>{{59|c}}</td><td>C</td></tr>
+            <tr><td>4</td><td>won</td><td>{{57|c}}</td><td>{{57|c}}</td><td>C</td></tr>
+            <tr><td>5</td><td>won</td><td>{{56|c}}</td><td>{{56|c}}</td><td>B</td></tr>
+            <tr><td>6</td><td>won</td><td>{{54|c}}</td><td>{{54|c}}</td><td>B</td></tr>
+            <tr><td>7</td><td>won</td><td>{{40|c}}</td><td>{{41|c}}</td><td>B</td></tr>
+            <tr><td>8</td><td>won</td><td>{{39|c}}</td><td>{{40|c}}</td><td>C</td></tr>
+            <tr class="danger"><td>9</td><td>lost</td><td>{{20|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+        </table>
+    </div>
+
+    <div class="col-md-5 col-md-offset-2">
+        <h4>Table 4. Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+            <tr><td>1</td><td>won</td><td>{{63|c}}</td><td>{{63|c}}</td><td>A</td></tr>
+            <tr><td>2</td><td>won</td><td>{{60|c}}</td><td>{{60|c}}</td><td>A</td></tr>
+            <tr><td>3</td><td>won</td><td>{{59|c}}</td><td>{{59|c}}</td><td>C</td></tr>
+            <tr><td>4</td><td>won</td><td>{{57|c}}</td><td>{{57|c}}</td><td>C</td></tr>
+            <tr><td>5</td><td>won</td><td>{{56|c}}</td><td>{{56|c}}</td><td>B</td></tr>
+            <tr><td>6</td><td>won</td><td>{{54|c}}</td><td>{{54|c}}</td><td>B</td></tr>
+            <tr><td>7</td><td>won</td><td>{{40|c}}</td><td>{{41|c}}</td><td>B</td></tr>
+            <tr><td>8</td><td>won</td><td>{{40|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+            <tr class="danger"><td>9</td><td>lost</td><td>{{39|c}}</td><td>{{40|c}}</td><td>C</td></tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <p>Focusing on Table 3, we see that Bidder A obtains 2 unit while Bidder B and Bidder C both obtain 3
+        units. Profits for Bidder A on this unit are calculated as follows: the valuation of the unit less the
+        market price.</p>
+    <p>Thus in the case of Table 3, Bidder A’s profits are calculated as:</p>
+    <ul>
+        <li>Unit 1: $63 - $20 = $43</li>
+        <li>Unit 2 : $60 - $20 = $40</li>
+        <li>and nothing on unit 3</li>
+        <li>Total profits = $83</li>
+    </ul>
+    <p>As in the previous example, we are interested to see if Bidder A could increase her third unit
+        bids in order to purchase 3 (rather than 2) unit. Table 4 illustrates this case when Bidder A changes her
+        bid from $20 to $40 on her lower valued unit while keeping her bid on the higher valued units constant
+        as well as all bids from Bidder B and Bidder C constant. This change in bidding strategy resulted in the
+        market price now being set by Bidder C’s bid of $39. Bidder A purchases 3 units and Bidder B purchases 3
+        units while Bidder C now only purchases 2 and her losing bid sets the market price. Thus in the case
+        of Table 4, Bidder A’s profits are calculated as:</p>
+        <ul>
+            <li>Unit 1: $63 - $39 = $24</li>
+            <li>Unit 2 : $60 - $39 = $21</li>
+            <li>Unit 3: $44 - $39 = $5</li>
+            <li>Total profits = $50</li>
+        </ul>
+    <p>Consequently, total profits are lower in Table 4 where Bidder A purchased 3 units relative to Table 3
+        where Bidder A purchased only 2 unit.</p>
+   
+</div>

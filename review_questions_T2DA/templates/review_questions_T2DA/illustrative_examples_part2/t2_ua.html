@@ -1,0 +1,83 @@
+{% load otree_tags %}
+
+<div class="row">
+    <p>    Continuing with our illustrative scenario, Example 1  focuses on Bidder A's problem.</p>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>Table 1. Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+          <td>won</td><td>{{63|c}}</td><td>{{63|c}}</td><td>A</td></tr>
+            <td>won</td><td>{{60|c}}</td><td>{{60|c}}</td><td>A</td></tr>
+            <td>won</td><td>{{59|c}}</td><td>{{59|c}}</td><td>C</td></tr>
+            <td>won</td><td>{{57|c}}</td><td>{{57|c}}</td><td>C</td></tr>
+            <td>won</td><td>{{56|c}}</td><td>{{56|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{54|c}}</td><td>{{54|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{40|c}}</td><td>{{41|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{27|c}}</td><td>{{33|c}}</td><td>C</td></tr>
+            <tr class="danger"><td>lost</td><td>{{20|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+        </table>
+    </div>
+
+    <div class="col-md-4 col-md-offset-2">
+        <h4>Table 2. Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+            </thead>
+         <td>won</td><td>{{63|c}}</td><td>{{63|c}}</td><td>A</td></tr>
+           <td>won</td><td>{{60|c}}</td><td>{{60|c}}</td><td>A</td></tr>
+           <td>won</td><td>{{59|c}}</td><td>{{59|c}}</td><td>C</td></tr>
+           <td>won</td><td>{{57|c}}</td><td>{{57|c}}</td><td>C</td></tr>
+            <td>won</td><td>{{56|c}}</td><td>{{56|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{54|c}}</td><td>{{54|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{40|c}}</td><td>{{41|c}}</td><td>B</td></tr>
+            <td>won</td><td>{{40|c}}</td><td>{{44|c}}</td><td>A</td></tr>
+            <tr class="danger"><td>lost</td><td>{{27|c}}</td><td>{{33|c}}</td><td>C</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <p>First, we focus on Table 1. Note  Bidder A obtains 2
+        units while Bidder B and Bidder C both obtain 3 units. Thus in the case of Table 1, Bidder A’s profits
+        are calculated as</p>
+    <ul>
+        <li>Unit 1: $63 - $20 = $43</li>
+        <li>Unit 2: $60 - $20 = $40</li>
+        <li>and nothing on unit 3</li>
+        <li>Total profit = $83</li>
+    </ul>
+    <p>In this example, Bidder A could have obtained a third unit by bidding more, provided that bid
+    was sufficiently high to edge out Bidder C. Table 2 illustrates the case in which Bidder A changes
+    her bid on her third unit from $20 to $40; and all other bids are held constant. Focusing on Table 2,
+    we see that the clearing price is now $27. Bidder A purchases 3 units and Bidder B purchases 3 units while
+    Bidder C now only purchases 2 and her losing bid sets the clearing price. Thus in the case of Table 2,
+    Bidder A’s profits are calculated as</p>
+    <ul>
+        <li>Unit 1: $63 - $27 = $36</li>
+        <li>Unit 2: $60 - $27 = $33</li>
+        <li>Units 3: $44 - $27 = $17</li>
+        <li>Total profits = $86</li>
+    </ul>
+    <p>In comparing the auction outcomes in Table 1 and Table 2, we see that Bidder A was able to
+        increase her profits by bidding  more on her third unit in order to win 3 units rather
+        than 2. However, it is important to point out in this example that in obtaining 3 (rather than 2)
+        unit, Bidder A caused the market clearing price to increase from $20 to $27. This directly affects
+        the price that Bidder A had to pay for her two higher valued unit. In the scenario represented in
+        Table 1 and Table 2, the increase in clearing price was small enough such that purchasing two units
+        rather than one unit increased total profits. It should be noted that this will not always be the
+        case.</p>
+</div>
+

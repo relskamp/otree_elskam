@@ -1,0 +1,57 @@
+{% load otree_tags %}
+
+
+
+<div class="row">
+   
+<p>Once all the bids are submitted, the computer will sort the bids from highest to lowest.  As you see in the table below, the first three highest bids have won the units.  The fourth highest bid lost the item.  The fourth highest bid is highlighted in pink and sets the market price that the winning bidders will have to pay for the units won.
+</p>
+
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h4>Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+                <th>Profits Earned</th>
+            </thead>
+           <td>won</td><td>{{63|c}}</td><td>{{63|c}}</td><td>A</td><td>{{63|c}} - <strong>{{20|c}}</strong> = {{43|c}}</td></tr>
+            <td>won</td><td>{{56|c}}</td><td>{{56|c}}</td><td>B</td><td>{{56|c}} - <strong>{{ 20|c}}</strong> = {{36|c}}</td></tr>
+            <td>won</td><td>{{28|c}}</td><td>{{48|c}}</td><td>B</td><td>{{48|c}} - <strong>{{ 20|c}}</strong> = {{28|c}}</td></tr>
+            <tr class="danger"><td>lost</td><td><strong>{{20|c}}</strong></td><td>{{44|c}}</td><td>A</td><td>{{0|c}}</td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+
+
+<p> In the example, Bidder A earned 1
+unit while Bidder B earned 2 units.  Bidder A’s total profits are calculated
+as</p>
+
+<ul>
+    <li>Unit 1: $63 - $20 = $43</li>
+    <li>and nothing on unit 2</li>
+    <li>Total profits = $43</li>
+    </ul>
+
+<p>  Bidder B’s total profits are calculated
+as</p>
+
+<ul>
+    <li>Unit 1: $56 - $20 = $36</li>
+    <li>Unit 2: $48 - $20 = $28</li>
+    <li>Total profits = $64</li>
+    </ul>
+
+
+
+</div>

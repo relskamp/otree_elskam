@@ -10,7 +10,97 @@ def vars_for_all_templates(self):
     return {'total_q': 1,
             'total_rounds': Constants.num_rounds,
             'round_number': self.subsession.round_number,
-            'role': self.player.role()}
+            'role': self.player.role(),
+            "treatment": self.session.config['treatment']}
+
+
+class FirstPage(Page):
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
+class SecondPage(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
+
+class Introduction_1(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+class Introduction_2(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
+class AssignmentRulesAndProfitCalculations(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
+class IllustrativeExamplesPart1Section1(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
+class IllustrativeExamplesPart1Section2(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
+class IllustrativeExamplesPart1Section3(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
+class IllustrativeExamplesPart1Section4(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+class IllustrativeExamplesPart2(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+class IllustrativeExamplesPart3(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+class IllustrativeExamplesPart4(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+class AdditionalRemarks(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
+
+class LinkReviewQuestions(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
+
+class FinalPage(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+
 
 
 class Welcome(Page):
@@ -107,7 +197,21 @@ class Question_8_Answers(Page):
 class Link(Page):
     pass 
 
-page_sequence = [Welcome,
+page_sequence = [ FirstPage,
+                 SecondPage,
+                 Introduction_1,
+                 Introduction_2,
+                 AssignmentRulesAndProfitCalculations,
+                 IllustrativeExamplesPart1Section1,
+                 IllustrativeExamplesPart1Section2,
+                 IllustrativeExamplesPart1Section3,
+                 IllustrativeExamplesPart1Section4,
+                 IllustrativeExamplesPart2,
+                 IllustrativeExamplesPart3,
+                 IllustrativeExamplesPart4,
+                 AdditionalRemarks,
+                 LinkReviewQuestions,
+                 Welcome,
                  Question_1,
                  Question_1_Answers,
                  Question_2,
@@ -124,4 +228,5 @@ page_sequence = [Welcome,
                  Question_7_Answers,
                  Question_8,
                  Question_8_Answers,
-                 Link]
+                 Link,
+                 FinalPage]

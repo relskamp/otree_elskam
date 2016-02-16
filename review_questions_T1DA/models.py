@@ -26,7 +26,7 @@ links = {}
 keywords = ()
 
 class Constants:
-    name_in_url = 'review_questions_T1DA'
+    name_in_url = 'part1'
     players_per_group = None
     num_rounds = 1
     payoff = c(5)

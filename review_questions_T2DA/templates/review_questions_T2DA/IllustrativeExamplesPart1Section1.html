@@ -1,0 +1,31 @@
+{% extends "global/Base.html" %}
+{% load humanize staticfiles otree_tags %}
+
+{% block title %}
+    Example of How the Auction Works
+{% endblock %}
+
+{% block content %}
+<style>
+ol.pretty-ol li {
+    margin-bottom: 20px;
+}
+</style>
+
+    {% if treatment == "T1-UA" %}
+    {% include "review_questions_T2DA/illustrative_examples_part1_section1/t1_ua.html" %}
+    {% elif treatment == "T1-DA" %}
+    {% include "review_questions_T2DA/illustrative_examples_part1_section1/t1_da.html" %}
+    {% elif treatment == "T2-UA" %}
+    {% include "review_questions_T2DA/illustrative_examples_part1_section1/t2_ua.html" %}
+    {% elif treatment == "T2-DA" %}
+    {% include "review_questions_T2DA/illustrative_examples_part1_section1/t2_da.html" %}
+    {% endif %}
+
+    <span class="pull-right">
+        {% next_button %}
+    </span>
+    <br>
+{% endblock %}
+
+

@@ -1,0 +1,91 @@
+{% load otree_tags %}
+
+
+
+
+
+
+<div class="row">
+    
+    
+    
+    <p>Once all the bids are submitted, the computer will sort the bids from highest to lowerst.  As you see in the table below, the eight highest bids have won the units.  The ninth highest bid lost the item and is  highlighted in pink.  All bidders that won an item will have to pay their bid for that unit won.
+    </p>
+    
+    
+    
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h4>Auction Outcomes</h4>
+        <table class="table table-hover">
+            <thead>
+            
+                <th>Status</th>
+                <th>Bid</th>
+                <th>Value</th>
+                <th>Bidder</th>
+                <th>Profits Earned</th>
+
+            </thead>
+         <td>won</td><td>{{58|c}}</td><td>{{63|c}}</td><td>A</td><td>{{63|c}} - <strong>{{58|c}}</strong> = {{5|c}}</td></tr>
+            <td>won</td><td>{{52|c}}</td><td>{{60|c}}</td><td>A</td><td>{{60|c}} - <strong>{{52|c}}</strong> = {{8|c}}</td></tr>
+           <td>won</td><td>{{51|c}}</td><td>{{59|c}}</td><td>C</td><td>{{59|c}} - <strong>{{51|c}}</strong> = {{8|c}}</td></tr>
+           <td>won</td><td>{{50|c}}</td><td>{{56|c}}</td><td>B</td><td>{{56|c}} - <strong>{{50|c}}</strong> = {{6|c}}</td></tr>
+           <td>won</td><td>{{45|c}}</td><td>{{57|c}}</td><td>C</td><td>{{57|c}} - <strong>{{45|c}}</strong> = {{12|c}}</td></tr>
+           <td>won</td><td>{{42|c}}</td><td>{{54|c}}</td><td>B</td><td>{{54|c}} - <strong>{{42|c}}</strong> = {{12|c}}</td></tr>
+            <td>won</td><td>{{32|c}}</td><td>{{41|c}}</td><td>B</td><td>{{41|c}} - <strong>{{32|c}}</strong> = {{9|c}}</td></tr>
+            <td>won</td><td>{{30|c}}</td><td>{{33|c}}</td><td>C</td><td>{{33|c}} - <strong>{{30|c}}</strong> = {{3|c}}</td></tr>
+            <tr class="danger"><td>lost</td><td>{{28|c}}</td><td>{{44|c}}</td><td>A</td><td>{{0|c}}</td></tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    
+    
+    <p> In this example,  Bidder A earned 2
+    units while Bidder B and Bidder C earned 3 units.  Bidder A’s profits are calculated
+    as</p>
+    
+    <ul>
+        <li>Unit 1: $63 - $58 = $5</li>
+        <li>Unit 2: $60 - $52 = $8</li>
+        <li>and nothing on unit 3</li>
+        <li>Total profits = $13</li>
+    </ul>
+    
+    <p>  Bidder B’s profits are calculated
+    as</p>
+    
+    <ul>
+        <li>Unit 1: $56 - $50 = $6</li>
+        <li>Unit 2: $54 - $42 = $12</li>
+        <li>Unit 3: $41 - $32 = $9</li>
+        <li>Total profits = $27</li>
+    </ul>
+    
+    <p>  Bidder C’s profits are calculated
+    as</p>
+    
+    <ul>
+        <li>Unit 1: $59 - $51 = $8</li>
+        <li>Unit 2: $57 - $45 = $12</li>
+        <li>Unit 3: $33 - $30 = $3</li>
+        <li>Total profits = $23</li>
+    </ul>
+    
+    
+
+        
+</div>
+
+
+
+
+
+
+
+

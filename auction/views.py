@@ -9,86 +9,6 @@ def vars_for_all_templates(self):
     return {"treatment": self.session.config['treatment']}
 
 
-class FirstPage(Page):
-    
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-
-class SecondPage(Page):
-    
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-
-
-class Introduction_1(Page):
-
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-class Introduction_2(Page):
-    
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-
-class AssignmentRulesAndProfitCalculations(Page):
-
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-
-class IllustrativeExamplesPart1Section1(Page):
-
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-
-class IllustrativeExamplesPart1Section2(Page):
-    
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-
-class IllustrativeExamplesPart1Section3(Page):
-    
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-
-class IllustrativeExamplesPart1Section4(Page):
-    
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-class IllustrativeExamplesPart2(Page):
-    
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-class IllustrativeExamplesPart3(Page):
-    
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-class IllustrativeExamplesPart4(Page):
-    
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-class AdditionalRemarks(Page):
-
-    def is_displayed(self):
-        return self.subsession.round_number == 1
-
-
-
-class LinkReviewQuestions(Page):
-   
-   def is_displayed(self):
-        return self.subsession.round_number == 1
-
 
 
 class FinalPage(Page):
@@ -169,19 +89,5 @@ class Resume(Page):
 
 
 page_sequence = [
-    FirstPage,
-    SecondPage,
-    Introduction_1,
-    Introduction_2,
-    AssignmentRulesAndProfitCalculations,
-    IllustrativeExamplesPart1Section1,
-    IllustrativeExamplesPart1Section2,
-    IllustrativeExamplesPart1Section3,
-    IllustrativeExamplesPart1Section4,
-    IllustrativeExamplesPart2,
-    IllustrativeExamplesPart3,
-    IllustrativeExamplesPart4,
-    AdditionalRemarks,
-    LinkReviewQuestions,
     FinalPage,
     Decide, ResultsWaitPage, Results, Resume]
