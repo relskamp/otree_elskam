@@ -33,7 +33,7 @@ keywords = ()
 class Constants:
     name_in_url = 'auction'
     players_per_group = None
-    num_rounds = 25
+    num_rounds = 3
     start_money = c(settings.SESSION_CONFIG_DEFAULTS["participation_fee"])
     players_per_group_t1 = 2
     players_per_group_t2 = 3

@@ -9,7 +9,7 @@
 
     <div>
         <p>
-            Your final payoff is:
+            Your  cumulative payment from Part 1 and Part 2 is:
             <strong class="{% if player.final_payoff < 0%}text text-danger{%endif%}">
                 {{player.final_payoff}}
             </strong>
@@ -17,15 +17,12 @@
             {% for rn in player.list_payoff_rounds_numbers %}
             <strong>{{rn}}</strong> {% if forloop.last %}plus{% else %}and round{% endif %}
             {% endfor %}
-            <strong>{{Constants.start_money}}</strong> participation reward)
+            <strong>{{Constants.start_money}}</strong>  reward for completing  Part 1.)
         </p>
-  
+        <p> Please patiently wait while we tabulate your payments from Part 1, Part 2 and Part 3 together to determine your  <strong>final earnings</strong>. </p>
         
-        <p>This is  the end of PART 1.  Please <strong>copy</strong> and  <strong>paste</strong> the following link into your web browser to be re-directed to Part 2: </p>
-        
-        <p>http://www.uoguelph.ca/~rkirkega/q.pdf </p>
-        
-        
+         <p>We will call you up <strong>individually</strong> to recieve your final earnings in private. </p>
+
        
     </div>
 

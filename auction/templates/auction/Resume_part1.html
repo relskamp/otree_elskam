@@ -1,0 +1,33 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    End of Part 2
+{% endblock %}
+
+{% block content %}
+
+    <div>
+
+        <p>This is  the end of PART 2.  Please <strong>copy</strong> and  <strong>paste</strong> the following link into a NEW web browser to be re-directed to Part 3: </p>
+        
+        <p>http://www.uoguelph.ca/~rkirkega/partthree.pdf </p>
+        
+        
+        
+        <p>DO NOT close the current tab. You will be re-directed to it shortly. </p>
+
+
+
+
+        <p>DO NOT CLICK THE NEXT BUTTON </p>
+       
+    </div>
+
+
+<span class="pull-right">
+    {% next_button %}
+</span>
+
+    <br>
+{% endblock %}

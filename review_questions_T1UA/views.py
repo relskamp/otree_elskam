@@ -86,6 +86,10 @@ class AdditionalRemarks(Page):
     def is_displayed(self):
         return self.subsession.round_number == 1
 
+class Payments(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == 1
 
 
 class LinkReviewQuestions(Page):
@@ -109,7 +113,7 @@ class Question_1(Page):
 
     form_model = models.Player
     form_fields = [
-        "gender"]
+        "Q1"]
 
 class Question_1_Answers(Page):
     pass
@@ -119,7 +123,7 @@ class Question_2(Page):
     
     form_model = models.Player
     form_fields = [
-                    "age"]
+                    "Q2"]
 
 
 class Question_2_Answers(Page):
@@ -130,7 +134,7 @@ class Question_3(Page):
     
     form_model = models.Player
     form_fields = [
-                   "education_level"]
+                   "Q3"]
 
 
 class Question_3_Answers(Page):
@@ -142,7 +146,7 @@ class Question_4(Page):
     
     form_model = models.Player
     form_fields = [
-                   "marital_status"]
+                   "Q4"]
 
 
 class Question_4_Answers(Page):
@@ -154,7 +158,7 @@ class Question_5(Page):
     
     form_model = models.Player
     form_fields = [
-                   "employment_status"]
+                   "Q5"]
 
 
 class Question_5_Answers(Page):
@@ -165,7 +169,7 @@ class Question_6(Page):
     
     form_model = models.Player
     form_fields = [
-                   "student_status"]
+                   "Q6"]
 
 
 class Question_6_Answers(Page):
@@ -175,7 +179,7 @@ class Question_7(Page):
     
     form_model = models.Player
     form_fields = [
-                   "example1"]
+                   "Q7"]
 
 
 class Question_7_Answers(Page):
@@ -186,7 +190,7 @@ class Question_8(Page):
     
     form_model = models.Player
     form_fields = [
-                   "example2"]
+                   "Q8"]
 
 
 class Question_8_Answers(Page):
@@ -210,6 +214,7 @@ page_sequence = [ FirstPage,
                  IllustrativeExamplesPart3,
                  IllustrativeExamplesPart4,
                  AdditionalRemarks,
+                 Payments,
                  LinkReviewQuestions,
                  Welcome,
                  Question_1,

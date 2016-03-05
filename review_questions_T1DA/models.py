@@ -52,55 +52,58 @@ class Player(otree.models.BasePlayer):
     subsession = models.ForeignKey(Subsession)
     # </built-in>
 
-    gender = models.CharField(
+    Q1 = models.CharField(
         max_length=255, choices=['One', 'Two', 'Three'],
         verbose_name="How many bids will you submit in each auction round?",
-        widget=widgets.RadioSelectHorizontal())
+        widget=widgets.RadioSelect())
 
-    age = models.CharField(
+    Q2 = models.CharField(
         max_length=255,
         choices=[
             "No", "Yes"],
         verbose_name="Will your valuations be drawn anew before each auction round?",
-        widget=widgets.RadioSelectHorizontal())
+        widget=widgets.RadioSelect())
 
 
-    education_level = models.CharField(
+    Q3 = models.CharField(
         verbose_name=(
             "Are your valuations independent of the valuations assigned to your competitor?"),
-        max_length=255, widget=widgets.RadioSelectHorizontal(),
+        max_length=255, widget=widgets.RadioSelect(),
         choices=[
             "Yes", "No" ])
 
-    marital_status = models.CharField(
+    Q4 = models.CharField(
         verbose_name=" How are your valuations determined?",
         choices=[
-            "The valuation on the second unit (v2) is randomly drawn between 0 and 100, and the value on the first unit (v1) is drawn randomly from the interval between v2 and 100.", "Valuations are same across all 25 auction rounds",
+            "The valuation on the second unit (v2) is randomly drawn between 0 and 100, and the value on the first unit (v1) is drawn randomly from the interval between v2 and 100.",
+                 "Valuations are same across all 25 auction rounds",
             "Valuations are linked to bids in the last round"],
-        max_length=255, widget=widgets.RadioSelectHorizontal())
+        max_length=255, widget=widgets.RadioSelect())
 
-    employment_status = models.CharField(
+    Q5 = models.CharField(
         verbose_name="If you win an item, what price do you pay?",
-        widget=widgets.RadioSelectHorizontal(), max_length=255,
-        choices=["My bid corresponding to the unit won", "The market price  determined by the losing bid - the fourth highest bid", "My competitor's highest bid"])
+        widget=widgets.RadioSelect(), max_length=255,
+        choices=["My bid corresponding to the unit won",
+                 "The market price  determined by the losing bid - the fourth highest bid",
+                 "My competitor's highest bid"])
 
-    student_status = models.CharField(
+    Q6 = models.CharField(
         verbose_name=(
             "How many units are your guaranteed to purchase?"),
-        widget=widgets.RadioSelectHorizontal(), max_length=255,
+        widget=widgets.RadioSelect(), max_length=255,
         choices=["Zero", "One", "Two"])
 
-    example1 = models.CharField(
+    Q7 = models.CharField(
           verbose_name=(
             "Calculate the profits earned by Bidder A on her first unit purchased in the example depicted in Table"),
-          widget=widgets.RadioSelectHorizontal(), max_length=255,
+          widget=widgets.RadioSelect(), max_length=255,
           choices=["98 - 15 = 83", "98 - 98 = 0", "98 - 45 = 54"])
 
 
-    example2 = models.CharField(
+    Q8 = models.CharField(
           verbose_name=(
               "Calculate the total profits earned by Bidder B on all units purchased in the example depicted in Table 1"),
-          widget=widgets.RadioSelectHorizontal(), max_length=255,
+          widget=widgets.RadioSelect(), max_length=255,
           choices=["(56 - 56)+(48 - 48) = 0", "(56 - 36)+(48 - 20) = 48", "(56 - 48)+(48 - 48) = 8"])
     
 

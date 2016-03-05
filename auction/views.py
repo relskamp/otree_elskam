@@ -81,6 +81,20 @@ class Results(Page):
         if self.subsession.round_number == Constants.num_rounds:
             self.player.set_payoff()
 
+class Resume_part1(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == Constants.num_rounds
+
+class Resume_part2(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == Constants.num_rounds
+
+class Resume_part3(Page):
+    
+    def is_displayed(self):
+        return self.subsession.round_number == Constants.num_rounds
 
 class Resume(Page):
 
@@ -90,4 +104,4 @@ class Resume(Page):
 
 page_sequence = [
     FinalPage,
-    Decide, ResultsWaitPage, Results, Resume]
+    Decide, ResultsWaitPage, Results, Resume_part1, Resume_part2, Resume_part3, Resume]

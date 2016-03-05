@@ -22,15 +22,18 @@ class Question(Page):
     form_model = models.Player
     form_fields = [
         "gender", "age", "ethnicity", "education_level", "marital_status",
-        "employment_status", "student_status", "enrolled_type", "auction_buy",
-        "auctions_experience"]
+        "employment_status", "student_status", "enrolled_type","major_type","class_type", "auction_buy",
+        "auctions_experience","competitive_type"]
 
 
 class Gamble(Page):
     form_model = models.Player
     form_fields = ["gamble"]
 
-class Link(Page):
-    pass 
+class Link_part1(Page):
+    pass
 
-page_sequence = [Welcome, Question, Gamble, Link]
+class Link_part2(Page):
+    pass
+
+page_sequence = [Welcome, Question, Gamble, Link_part1, Link_part2]
