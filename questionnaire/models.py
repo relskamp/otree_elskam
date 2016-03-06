@@ -29,7 +29,7 @@ class Constants:
     name_in_url = 'questionnaire'
     players_per_group = None
     num_rounds = 1
-    payoff = c(5)
+    payoff = c(6)
     gambles_payoff = [
         (c(2.80), c(2.80)), (c(2.40), c(3.60)), (c(2.00), c(4.20)),
         (c(1.60), c(5.20)), (c(1.20), c(6.00)),(c(0.20), c(7.00)),
@@ -154,7 +154,7 @@ class Player(otree.models.BasePlayer):
             
            
 
-    gamble = models.PositiveIntegerField(min=1, max=5)
+    gamble = models.PositiveIntegerField(min=1, max=6)
 
 
 

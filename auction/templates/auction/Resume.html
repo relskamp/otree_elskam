@@ -8,17 +8,22 @@
 {% block content %}
 
     <div>
+        <p> Of the 25 auction rounds you played, only 2 rounds were selected to determine you earnings from Part 2. In your case, auction round
+        {% for rn in player.list_payoff_rounds_numbers %}
+        <strong>{{rn}}</strong> {% if forloop.last %}plus{% else %}and round{% endif %} {% endfor %}
+ were randomly selected from the 25 auction rounds you played to determine your earnings from Part 2.</p>
+        
         <p>
             Your  cumulative payment from Part 1 and Part 2 is:
             <strong class="{% if player.final_payoff < 0%}text text-danger{%endif%}">
                 {{player.final_payoff}}
-            </strong>
-            (auction profits from randomly selected auction round
+            </strong>.  This amount is determined by the profits you earned from auction round
             {% for rn in player.list_payoff_rounds_numbers %}
             <strong>{{rn}}</strong> {% if forloop.last %}plus{% else %}and round{% endif %}
             {% endfor %}
-            <strong>{{Constants.start_money}}</strong>  reward for completing  Part 1.)
-        </p>
+            <strong>{{Constants.start_money}}</strong>  reward for completing  Part 1.</p>
+            
+            
         <p> Please patiently wait while we tabulate your payments from Part 1, Part 2 and Part 3 together to determine your  <strong>final earnings</strong>. </p>
         
          <p>We will call you up <strong>individually</strong> to recieve your final earnings in private. </p>

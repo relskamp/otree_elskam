@@ -146,7 +146,7 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        'name': 'elskamp_auction_game',
+        'name': 'elskamp_auction_game_part3',
         'display_name': "Demographic Questionaire",
         'num_demo_participants': 8,
         'app_sequence': [
@@ -156,7 +156,7 @@ SESSION_CONFIGS = [
                    
                  
     {
-        'name': 'elskamp_auction_game_review_T1UA',
+        'name': 'elskamp_auction_game_part1_T1UA',
          'display_name': "Part1_T1UA",
          'num_demo_participants': 8,
          'app_sequence': [
@@ -165,7 +165,7 @@ SESSION_CONFIGS = [
     },
 
     {
-        'name': 'elskamp_auction_game_review_T1DA',
+        'name': 'elskamp_auction_game_part1_T1DA',
         'display_name': "Part1_T1DA",
         'num_demo_participants': 8,
         'app_sequence': [
@@ -174,7 +174,7 @@ SESSION_CONFIGS = [
        },
                    
       {
-    'name': 'elskamp_auction_game_review_T2UA',
+    'name': 'elskamp_auction_game_part1_T2UA',
     'display_name': "Part1_T2UA",
     'num_demo_participants': 8,
     'app_sequence': [
@@ -183,7 +183,7 @@ SESSION_CONFIGS = [
       },
                    
    {
-   'name': 'elskamp_auction_game_review_T2DA',
+   'name': 'elskamp_auction_game_part1_T2DA',
     'display_name': "Part1_T2DA",
     'num_demo_participants': 8,
     'app_sequence': [
@@ -194,28 +194,28 @@ SESSION_CONFIGS = [
                                 
                    
     {
-        'name': 'elskamp_auction_game_t1_ua',
+        'name': 'elskamp_auction_game_part2_T1UA',
         'display_name': "Part2_ T1-UA",
         'num_demo_participants': 2,
         'app_sequence': ["auction"],
         'treatment': "T1-UA",
     },
     {
-        'name': 'elskamp_auction_game_t1_da',
+        'name': 'elskamp_auction_game_part2_T1DA',
         'display_name': "Part2_T1-DA",
         'num_demo_participants': 2,
         'app_sequence': ["auction"],
         'treatment': "T1-DA",
     },
     {
-        'name': 'elskamp_auction_game_t2_ua',
+        'name': 'elskamp_auction_game_part2_T2UA',
         'display_name': "Part2_T2-UA",
         'num_demo_participants': 3,
         'app_sequence': ["auction"],
         'treatment': "T2-UA",
     },
     {
-        'name': 'elskamp_auction_game_t2_da',
+        'name': 'elskamp_auction_game_part2_T2DA',
         'display_name': "Part2_T2-DA",
         'num_demo_participants': 3,
         'app_sequence': ["auction"],
