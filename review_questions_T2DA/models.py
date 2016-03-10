@@ -82,7 +82,7 @@ class Player(otree.models.BasePlayer):
     Q5 = models.CharField(
         verbose_name="If you win an item, what price do you pay?",
         widget=widgets.RadioSelect(), max_length=255,
-        choices=["My bid corresponding to the unit won", "The market price  determined by the losing bid - the fourth highest bid", "My competitor's highest bid"])
+        choices=["My bid corresponding to the unit won", "The market price  determined by the losing bid - the ninth highest bid", "My competitor's highest bid"])
 
     Q6 = models.CharField(
         verbose_name=(
