@@ -92,14 +92,14 @@ class Player(otree.models.BasePlayer):
 
     Q7 = models.CharField(
           verbose_name=(
-            "Calculate the profits earned by Bidder A on her first unit purchased in the example depicted in Table"),
+            "Calculate the profits earned by Bidder A on her first unit purchased in the example depicted in the table below"),
           widget=widgets.RadioSelect(), max_length=255,
           choices=["98 - 45 = 53", "98 - 98 = 0", "98 - 15 = 83"])
 
 
     Q8 = models.CharField(
           verbose_name=(
-              "Calculate the total profits earned by Bidder B on all units purchased in the example depicted in Table 1"),
+              "Calculate the total profits earned by Bidder B on all units purchased in the example depicted in the table below"),
           widget=widgets.RadioSelect(), max_length=255,
           choices=["($86 - $40)+($56 - $36) + ($48 - $20) = $94","($86 - $15)+($56 - $15) + ($48 - $15) = $145"])
     
